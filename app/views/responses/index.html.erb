@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-8">
+    <h2>
+      Responses
+    </h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Completed?</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @responses.find_each do |response| %>
+          <tr>
+            <td>
+              <%= truncate(response.display_name, length: 90) %>
+            </td>
+
+            <td>
+              <% if response.completed? %>
+                Yes
+              <% else %>
+                <span class="text-danger">No</span>
+              <% end %>
+            </td>
+
+            <td>
+              <%= link_to 'View', response_path(response), class: 'btn btn-default btn-xs' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-7">
+    <%= render 'questions/header', question: @question %>
+
+    <hr>
+
+    <h3>
+      Choices
+    </h3>
+
+    <%= bootstrap_form_for(@question) do |question_form| %>
+      <table class="table">
+        <% @question.choices.each_with_index do |choice, index| %>
+          <% hide_label = index > 0 %>
+
+          <%= question_form.fields_for(:choices, choice) do |choice_fields| %>
+            <tr>
+              <td>
+                <%= choice_fields.text_field :text, readonly: true, hide_label: hide_label %>
+              </td>
+
+              <td>
+                <%= choice_fields.select :creative_quality_id, options_for_select(CreativeQuality.pluck(:name, :id)), { hide_label: hide_label }, { disabled: true } %>
+              </td>
+
+              <td>
+                <%= choice_fields.text_field :score, readonly: true, hide_label: hide_label %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+
+      <div class="text-right">
+        <%= question_form.submit 'Update Choices', disabled: true %>
+      </div>
+    <% end %>
+  </div>
+</div>
