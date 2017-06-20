@@ -1,4 +1,4 @@
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/c1gpu5vz.png)
+![C∆ Logo](public/screenshots/Logo.png)
 
 # IDEO Creative Difference Rails Challenge
 
@@ -12,7 +12,7 @@ Please set aside **two hours** to complete this exercise. If you have any questi
 
 This challenge contains an example Rails app with some pre-existing code and tests.
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/814-yvf2.png)
+![](public/screenshots/Introduction.png)
 
 Your task will be to take the app in this repo and add new behavior to it! ([Jump to the challenge](#the-challenge))
 
@@ -84,27 +84,27 @@ Based on the survey responses, the company gets a score for each Creative Qualit
 
 If you run the server, the home page should list three creative qualities: **Purpose**, **Empowerment**, and **Collaboration**.
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/814-yvf2.png)
+![](public/screenshots/Walkthrough-Creative-Qualities.png)
 
 Our list of survey questions is configurable – clicking on **Questions** tab lets you see the different questions that make up the survey.
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/rri8emg8.png)
+![](public/screenshots/Walkthrough-Question-List.png)
 
 Drilling down into a question lets you see the different answer choices and how each choice impacts the score of the Creative Quality it corresponds to:
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/cbvfxij_.png)
+![](public/screenshots/Walkthrough-Question.png)
 
 (In this example, an answer of "Strongly Disagree" gives a -3 score for the **Purpose** creative quality)
 
 Our seeds file also creates 100 random survey responses. Click the **Responses** tab to see all of them.
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/t4o9py3h.png)
+![](public/screenshots/Walkthrough-Response-List.png)
 
 A response is "completed" if all of the 10 questions have been answered.
 
 Drilling down into a response lets you see how the respondent answered each question (their answer is in **bold**):
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/ym0hrdc-.png)
+![](public/screenshots/Walkthrough-Response.png)
 
 That's the tour! Let's start the challenge.
 
@@ -114,11 +114,11 @@ That's the tour! Let's start the challenge.
 
 The home page of our lists three of the six Creative Qualities we see as essential to innovation within an organization.
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/_tivl4y6.png)
+![](public/screenshots/1-Creative-Qualities-without-Color.png)
 
 In order to make each Creative Quality more memorable, we'd like to assocate each quality to a color. We're already using [Twitter Bootstrap](http://getbootstrap.com/) and the [Flatly Bootswatch Theme](https://bootswatch.com/flatly/), so let's have the colors correlate to one of the five colors listed in the **Container > Panels** section (`primary`, `danger`, `success`, `info`, and `warning`)
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/eed77ejr.png)
+![](public/screenshots/1-Bootstrap-Docs.png)
 
 Your job will be to implement the following:
 
@@ -127,7 +127,7 @@ Your job will be to implement the following:
 - Make it so that no two Creative Qualities can be assigned to the same color (let's assume for now that we won't have more than five qualities)
 - The panels on the home page should make use of the colors (**see screenshot below**; refer to the [Bootswatch documentation](https://bootswatch.com/flatly/))
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/--5ghgzw.png)
+![](public/screenshots/1-Creative-Qualities-with-Color.png)
 
 When you're done, write a commit. If your code changes the behavior of any models, make sure that behavior is tested!
 
@@ -135,7 +135,7 @@ When you're done, write a commit. If your code changes the behavior of any model
 
 When viewing a question, you'll notice that each choice affects a particular Creative Quality either positively or negatively.
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/eo0863_a.png)
+![](public/screenshots/2-Question-Scores.png)
 
 This means that if a respondant chooses "Strongly Disagree," the score for "Purpose" is decreased by 3.
 
@@ -143,7 +143,7 @@ This means that if a respondant chooses "Strongly Disagree," the score for "Purp
 
 Update the `response#show` page to show how each question response impacts Creative Quality scores, as follows:
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/zp2fg236.png)
+![](public/screenshots/2-1-Single-Response.png)
 
 If a score is impacted positively, color it in green. If it's impacted negatively, color it red (you can use Bootstrap for this).
 
@@ -153,7 +153,7 @@ When you're done, write another commit (and write tests if you changed any model
 
 Next, let's display the Creative Quality score for the entire response and display it at the top of the page:
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/ax916ixo.png)
+![](public/screenshots/2-2-Response-Set.png)
 
 We score each Creative Quality as follows:
 
@@ -174,7 +174,7 @@ At this point you've completed scoring for individual question responses as well
 
 Now let's show our global scores on the front page!
 
-![](https://dl.dropboxusercontent.com/spa/0n9xxbuk27dn14b/pxjo4pmi.png)
+![](public/screenshots/2-3-Global-Scores.png)
 
 Global scoring is simple:
 
