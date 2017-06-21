@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'faker'
+  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'rspec-rails'
 end
