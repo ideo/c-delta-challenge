@@ -187,6 +187,7 @@ DEPENDENCIES
   bootstrap_form
   bootswatch-rails
   byebug
+  factory_girl_rails
   faker
   jquery-rails
   listen (~> 3.0.5)
