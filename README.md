@@ -112,7 +112,7 @@ That's the tour! Let's start the challenge.
 
 ## Part 1: Creative Quality Colors
 
-The home page of our lists three of the six Creative Qualities we see as essential to innovation within an organization.
+The home page lists three of the six Creative Qualities we see as essential to innovation within an organization.
 
 ![](public/screenshots/1-Creative-Qualities-without-Color.png)
 
