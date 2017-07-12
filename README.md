@@ -43,9 +43,9 @@ Rails 5.0.1
 Now set up your database:
 
 ```bash
-$ rake db:migrate
-$ rake db:seed
-$ rake db:test:prepare
+$ rails db:migrate
+$ rails db:seed
+$ rails db:test:prepare
 ```
 
 We've included a test suite written using [RSpec](http://rspec.info/). Run it and ensure that all tests pass!
