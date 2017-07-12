@@ -199,10 +199,11 @@ Tell us what you thought of this coding challenge. What did you like? What did y
 
 If you had more time, are there any pieces of code (ours or yours) that you'd improve? How so and why?
 
-### Attach your code!
+### A link to your code!
 
-Attach a **zip file** of your project directory. (Please don't create a pull request!)
+Create a Github repo and send us the link!
 
+**Please do not fork this repo, as it will be publicly viewable for all other candidates.**
 
 
 ## Thanks!
