@@ -82,11 +82,11 @@ Our demo app is a (very!) pared down version of our [Creative Difference](http:/
 
 Based on the survey responses, the company gets a score for each Creative Quality which we help them analyze and improve on.
 
-If you run the server, the home page should list three creative qualities: **Purpose**, **Empowerment**, and **Collaboration**.
+If you run the server, the home page shows a very basic dashboard with three creative qualities: **Purpose**, **Empowerment**, and **Collaboration**.
 
 ![](public/screenshots/Walkthrough-Creative-Qualities.png)
 
-Our list of survey questions is configurable – clicking on **Questions** tab lets you see the different questions that make up the survey.
+If you head over to the **Questions** tab, you can see the questions that make up this sample survey.
 
 ![](public/screenshots/Walkthrough-Question-List.png)
 
@@ -94,9 +94,9 @@ Drilling down into a question lets you see the different answer choices and how 
 
 ![](public/screenshots/Walkthrough-Question.png)
 
-(In this example, an answer of "Strongly Disagree" gives a -3 score for the **Purpose** creative quality)
+(In this example, an answer of "Draining" gives a -1 score for the **Purpose** creative quality)
 
-Our seeds file also creates 100 random survey responses. Click the **Responses** tab to see all of them.
+Our seeds file also creates 100 survey responses. Click the **Responses** tab to see all of them.
 
 ![](public/screenshots/Walkthrough-Response-List.png)
 
