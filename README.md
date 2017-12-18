@@ -6,7 +6,7 @@ Hello! Welcome to the [IDEO Creative Difference](https://creativedifference.ideo
 
 This challenge will test your ability to write clean, intuitive, and well-tested Rails code – all things we care about deeply at IDEO!
 
-Please set aside **two hours** to complete this exercise. If you have any questions or get stuck on something (including setup), don't hesitate to send an email to c-delta-challenge@ideo.com. Good luck!
+Please set aside **two hours** to complete this exercise. If it's taking you considerably longer, feel free to stop and [head down to the reflection](#part-3-reflection-and-submission). Good luck!
 
 ## Introduction
 
@@ -94,7 +94,7 @@ Drilling down into a question lets you see the different answer choices and how 
 
 ![](public/screenshots/Walkthrough-Question.png)
 
-(In this example, an answer of "Draining" gives a -1 score for the **Purpose** creative quality)
+In this example, an answer of "Energizing" gives a 1 score for the **Purpose** creative quality. We have simplified the implementation in this challenge app, but in our production app, some questions have choices that impact more than one quality.
 
 Our seeds file also creates 100 survey responses. Click the **Responses** tab to see all of them.
 
@@ -110,13 +110,70 @@ That's the tour! Let's start the challenge.
 
 # The Challenge
 
-## Part 1: Creative Quality Colors
+## Part 1: Scoring Responses
+
+When viewing a question, you'll notice that each choice affects a particular Creative Quality either positively or negatively.
+
+![](public/screenshots/2-Question-Scores.png)
+
+This means that if a respondent chooses "Draining," the score for "Purpose" is decreased by 1.
+
+### 1.1: Scoring Creative Qualities for a single response to a question
+
+Update the `response#show` page to show how each question response impacts Creative Quality scores, as follows:
+
+![](public/screenshots/2-1-Single-Response.png)
+
+If a score is impacted positively, color it in green. If it's impacted negatively, color it red (you can use [Bootstrap](http://getbootstrap.com/docs/3.3/) for this).
+
+When you're done, write a commit. If your code changes the behavior of any models, make sure that behavior is tested!
+
+### 1.2: Scoring Creative Qualities for an entire response
+
+Next, we're diving into some complexity. We'd like to display the Creative Quality score for the entire response and display it at the top of the page:
+
+![](public/screenshots/2-2-Response-Set.png)
+
+We score each Creative Quality by adding up the raw score for all of the responses where someone chose a choice associated with that creative quality, and divide that by the maximum possible positive score for that quality.
+
+In more detail:
+
+- The **raw score** is the sum of all of the scores chosen for that creative quality.
+  - **Example:** If I selected four question choices that impacted the **Purpose** quality with 3, 3, 2, and -1, then my raw score would be  `3 + 3 + 2 - 1 = 7`.
+- The **max score** is the highest possible score a respondent could've gotten _(ie: if you answered by choosing the highest value choice for each question)_. It is dynamic, because if you skip a question, we don't increase the max.
+  - **Example:** If you selected 6 question choices that are linked to **Purpose**, and each one had a question choice with a score of 2, then the max would be `10 * 6 = 60`
+
+Write another commit when you're done (and yep –– test any behavior changes to models!).
+
+### 1.3 Scoring Creative Qualities globally
+
+At this point you've completed scoring for individual question responses as well as for entire response sets.
+
+Now let's show our global scores on the front page!
+
+![](public/screenshots/2-3-Global-Scores.png)
+
+Global scoring is relatively simple:
+
+- The **normalized score** (ie: **Collaboration: 73**) is the final score that we display per quality, and should be between -100 and 100.
+  - Step 1: Add up the raw and max scores for this quality across all responses.
+  - Step 2: Divide the raw by the max and multiply it by 100 (_we also floor the value if > 100 or ceil if < -100_).
+  - (The formula is: `(total_raw_for_quality / total_max_for_quality) * 100`)
+  - **Example:** If across all responses, the total raw score for Collaboration is 240 and the max is 575, then the normalized score would be `(240 / 575) * 100 = 42`). Ceil or floor the value if it ends up outside the -100 to 100 bounds.
+
+- For each Creative Quality, show the normalized score rounded to the nearest integer.
+
+- Above each score, add a little "progress bar" to visualize the score (there's an existing [Bootswatch component](https://bootswatch.com/flatly/) for doing this). Fill the progress bar with that Creative Quality's color.
+
+You're all done! Make a final commit of your work!
+
+## Part 2: Displaying the Results
 
 The home page lists three of the six Creative Qualities we see as essential to innovation within an organization.
 
 ![](public/screenshots/1-Creative-Qualities-without-Color.png)
 
-In order to make each Creative Quality more memorable, we'd like to assocate each quality to a color. We're already using [Twitter Bootstrap](http://getbootstrap.com/) and the [Flatly Bootswatch Theme](https://bootswatch.com/flatly/), so let's have the colors correlate to one of the five colors listed in the **Container > Panels** section (`primary`, `danger`, `success`, `info`, and `warning`)
+In order to make each Creative Quality more memorable, we'd like to associate each quality to a color. We're already using [Twitter Bootstrap](http://getbootstrap.com/) and the [Flatly Bootswatch Theme](https://bootswatch.com/flatly/), so let's have the colors correlate to one of the five colors listed in the **Container > Panels** section (`primary`, `danger`, `success`, `info`, and `warning`)
 
 ![](public/screenshots/1-Bootstrap-Docs.png)
 
@@ -129,61 +186,7 @@ Your job will be to implement the following:
 
 ![](public/screenshots/1-Creative-Qualities-with-Color.png)
 
-When you're done, write a commit. If your code changes the behavior of any models, make sure that behavior is tested!
-
-## Part 2: Scoring Responses
-
-When viewing a question, you'll notice that each choice affects a particular Creative Quality either positively or negatively.
-
-![](public/screenshots/2-Question-Scores.png)
-
-This means that if a respondant chooses "Strongly Disagree," the score for "Purpose" is decreased by 3.
-
-### 2.1: Scoring Creative Qualities for a single response to a question
-
-Update the `response#show` page to show how each question response impacts Creative Quality scores, as follows:
-
-![](public/screenshots/2-1-Single-Response.png)
-
-If a score is impacted positively, color it in green. If it's impacted negatively, color it red (you can use Bootstrap for this).
-
-When you're done, write another commit (and write tests if you changed any models!).
-
-### 2.2: Scoring Creative Qualities for a response set
-
-Next, let's display the Creative Quality score for the entire response and display it at the top of the page:
-
-![](public/screenshots/2-2-Response-Set.png)
-
-We score each Creative Quality as follows:
-
-- The **min score** is the lowest possible score the respondent could've gotten (ie, if the respondent answered the most negative choice for each question)
-- The **max score** is the highest possible score the respondent could've gotten (ie, if the respondent answered the most positive choice for each question)
-- The **raw score** is the sum of all of the scores chosen for that creative quality.
-  - **Example:** If I answered four questions that impacted the **Purpose** quality 3, 3, 2, and -1, my raw score would be  `3 + 3 + 2 - 1 = 7`.)
-- The **normalized score** (ie: **Collaboration: 73**) should be between 0 of 100. It takes the raw score and normalizes it on a scale of 100 based on the min and max scores as follows: (`(abs(min_score) + raw_score) / (abs(min_score) + max_score) * 100` )
-  - **Example:** If my min score was -14, my max score was 12, and my raw score was 5, then my normalized score would be `((14 + 5) / (14 + 12)) * 100 = 73 `). Round the normalized score to the nearest integer.
-- If a respondee didn't answer any questions (in this example only 9 of 10 were answered), don't factor in the skipped question(s) into the min and max scores.
-
-
-Write another commit when you're done (and yep –– test any behavior changes to models!).
-
-### 2.3 Scoring Creative Qualities globally
-
-At this point you've completed scoring for individual question responses as well as for entire response sets.
-
-Now let's show our global scores on the front page!
-
-![](public/screenshots/2-3-Global-Scores.png)
-
-Global scoring is simple:
-
-- For each Creative Quality, show the average response score rounded to the nearest integer.
-
-- Above each score, add a little "progress bar" to visualize the score (there's an existing [Bootswatch component](https://bootswatch.com/flatly/) for doing this). Fill the progress bar with that Creative Quality's color.
-
-You're all done! Make a final commit of your work!
-
+When you're done, write a commit. And bonus points if you can add an integration test to ensure end-to-end coverage.
 
 ## Part 3: Reflection and Submission
 
@@ -210,4 +213,4 @@ Create a Github repo and send us the link!
 
 Hope you enjoyed this challenge – we really appreciate you making the time!
 
-– The IDEO Creative Difference team
+– The IDEO Products Team
