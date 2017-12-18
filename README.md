@@ -6,7 +6,7 @@ Hello! Welcome to the [IDEO Creative Difference](https://creativedifference.ideo
 
 This challenge will test your ability to write clean, intuitive, and well-tested Rails code – all things we care about deeply at IDEO!
 
-Please set aside **two hours** to complete this exercise. If it's taking you considerably longer, feel free to stop and [head down to the reflection](#part-3-reflection-and-submission). Good luck!
+Please set aside **two hours** to complete this exercise. If it's taking you longer, feel free to stop and [head down to the reflection in Part 3](#Part 3: Reflection and Submission). Good luck!
 
 ## Introduction
 
