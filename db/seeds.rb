@@ -1,17 +1,17 @@
 purpose = CreativeQuality.create(
   name: 'Purpose',
   description: 'The degree to which there is alignment about a meaningful change that leadership and employees want to make in the world. Scoring high on purpose requires that the purpose is clear, inspires passion in employees, and helps to inform most major decisions.',
-  color: '#9A6697'
+  color: '#9e5fa0'
 )
 empowerment = CreativeQuality.create(
   name: 'Empowerment',
   description: 'The degree to which the organization provides a clear path for employees to create change by lending them autonomy. These organizations create meaningful jobs where employees are confident that they can improve things for the better if they do their job well.',
-  color: '#54B8A4'
+  color: '#5bc9b0'
 )
 collaboration = CreativeQuality.create(
   name: 'Collaboration',
   description: 'The degree to which employees of different roles and departments work together to bring new ideas forward. Organizations with a high score tend to create multi-disciplined teams where members with different skills respect and value each other’s craft.',
-  color: '#F0C125'
+  color: '#e6c937'
 )
 
 questions_attributes = [

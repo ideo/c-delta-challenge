@@ -12,7 +12,7 @@ Please set aside **two hours** to complete this exercise. If it's taking you lon
 
 This challenge contains an example Rails app with some pre-existing code and tests.
 
-![](public/screenshots/Introduction.png)
+![](public/screenshots/Creative_Difference-mockup.png)
 
 Your task will be to take the app in this repo and add new behavior to it! ([Jump to the challenge](#the-challenge))
 
@@ -149,7 +149,7 @@ Write another commit when you're done (and yep –– test any behavior change
 
 At this point you've completed scoring for individual question responses as well as for entire response sets.
 
-Now let's show our global scores on the front page!
+Now let's compute the final scores so that we can display them on the front page.
 
 ![](public/screenshots/2-3-Global-Scores.png)
 
@@ -161,32 +161,52 @@ Global scoring is relatively simple:
   - (The formula is: `(total_raw_for_quality / total_max_for_quality) * 100`)
   - **Example:** If across all responses, the total raw score for Collaboration is 240 and the max is 575, then the normalized score would be `(240 / 575) * 100 = 42`). Ceil or floor the value if it ends up outside the -100 to 100 bounds.
 
-- For each Creative Quality, show the normalized score rounded to the nearest integer.
+Your tasks:
 
-- Above each score, add a little "progress bar" to visualize the score (there's an existing [Bootswatch component](https://bootswatch.com/flatly/) for doing this). Fill the progress bar with that Creative Quality's color.
-
-You're all done! Make a final commit of your work!
+- Compute the normalized score for each Creative Quality.
+- Display each Creative Quality's normalized score on the index page, rounded to the nearest integer.
 
 ## Part 2: Displaying the Results
 
-The home page lists three of the six Creative Qualities we see as essential to innovation within an organization.
+The home page lists three of the six Creative Qualities we see as essential to innovation within an organization. In this part, we're going to restyle the results, and then rewrite the view of the page to use AngularJS (v1.6) instead of Rails + ERB.
 
-![](public/screenshots/1-Creative-Qualities-without-Color.png)
+### Part 2.1: Re-styling the Creative Quality results
+![](public/screenshots/Creative_Difference-mockup.png)
 
-In order to make each Creative Quality more memorable, we'd like to associate each quality to a color. We're already using [Twitter Bootstrap](http://getbootstrap.com/) and the [Flatly Bootswatch Theme](https://bootswatch.com/flatly/), so let's have the colors correlate to one of the five colors listed in the **Container > Panels** section (`primary`, `danger`, `success`, `info`, and `warning`)
+Using the above screenshot as your guide, re-style the Creative Quality index page to look as similar to the mockup as possible. Don't worry about the "read more" link and truncating the descriptions, as you will be working on that in Part 2.2 below.
 
-![](public/screenshots/1-Bootstrap-Docs.png)
+This includes creating a progress bar that should correspond to the final (normalized) score of each quality. Note that scores range from -100 to 100, so the middle point of the bar (i.e. an "empty" bar) should represent a score of 0, negative scores should extend to the left, and positive scores should extend to the right, as shown above.
 
-Your job will be to implement the following:
+Resources:
+- Colors are already stored on each `CreativeQuality` object in the `color` field
+- Image assets for each quality: `/app/assets/images/qualityIcons`
 
-- Assign each Creative Quality to one of the five Bootstrap colors.
-- Whenever a new Creative Quality is created, it should automatically be assigned a color at random.
-- Make it so that no two Creative Qualities can be assigned to the same color (let's assume for now that we won't have more than five qualities)
-- The panels on the home page should make use of the colors (**see screenshot below**; refer to the [Bootswatch documentation](https://bootswatch.com/flatly/))
 
-![](public/screenshots/1-Creative-Qualities-with-Color.png)
+### Part 2.2: Using AngularJS to display and sort the Creative Qualities
 
-When you're done, write a commit. And bonus points if you can add an integration test to ensure end-to-end coverage.
+In order to make the application more friendly to a potential API backend, we'd like to start using Angular (v1.6) to power the Creative Quality display page.
+
+The site is already setup to use the [webpacker](https://github.com/rails/webpacker) gem and [Angular v1.6](https://code.angularjs.org/1.6.7/docs/api), and you'll find a basic `CreativeQualitiesController` already provided for you in the `/app/javascript/angular` directory.
+
+You'll also see in `index.html.erb` that the Qualities are being output in JSON and stored in the `CreativeQualitiesController` like so:
+
+```javascript
+$scope.creativeQualities = qualsJSON
+```
+
+You should be able to setup your Angular controller in `index.html.erb`, replacing the ERB code (e.g. `<%= @creative_qualities.find_each...`).
+
+Your tasks:
+
+- Replace the Rails + ERB code in `index.html.erb` by implementing the Angular `CreativeQualitiesController` and writing the appropriate Angular HTML code.
+- Implement the "read more" on each description, so that each description is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
+- Add two sorting buttons somewhere on the page:
+  - **Sort by score** should sort Creative Qualities by score.
+  - **Sort by name** should sort Creative Qualities alphabetically.
+  - Clicking a button multiple times should toggle the sorting, e.g. low to high score, and then high to low score.
+
+:star: You're all done! Make a final commit of your work! :star:  
+\* Bonus points if you can add any integration or Angular tests to ensure end-to-end coverage
 
 ## Part 3: Reflection and Submission
 

@@ -14,9 +14,16 @@
     <%= render 'layouts/notifications' %>
 
     <div class="container">
-      <%= yield %>
+
+      <div id="react-root"></div>
+
+      <div ng-app="c-delta">
+        <%= yield %>
+      </div>
 
       <%= render 'layouts/footer' %>
     </div>
+
+    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
