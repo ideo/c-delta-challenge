@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Question do
   context 'associations' do
-    it { is_expected.to have_many(:choices) }
+    it { is_expected.to have_many(:question_choices) }
   end
 
   context 'validations' do

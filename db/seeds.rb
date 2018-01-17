@@ -19,7 +19,7 @@ questions_attributes = [
     title: "If you had to be candid, how would you describe your company culture?",
     position: 0,
     choices_attributes: [
-      { text: 'Energizing', creative_quality: empowerment, score: 1 },
+      { text: 'Energizing', creative_quality: empowerment, score: 4 },
       { text: 'Draining', creative_quality: empowerment, score: -1 }
     ]
   },
@@ -27,10 +27,10 @@ questions_attributes = [
     title: 'How do you feel about this statement? "Leadership clearly articulates our company\'s purpose, beyond making money."',
     position: 1,
     choices_attributes: [
-      { text: 'Strongly Disagree', creative_quality: purpose, score: -3 },
-      { text: 'Disagree', creative_quality: purpose, score: -2 },
+      { text: 'Strongly Disagree', creative_quality: purpose, score: -1 },
+      { text: 'Disagree', creative_quality: purpose, score: 0 },
       { text: 'Agree', creative_quality: purpose, score: 2 },
-      { text: 'Strongly Agree', creative_quality: purpose, score: 3 }
+      { text: 'Strongly Agree', creative_quality: purpose, score: 4 }
     ]
   },
   {
@@ -38,7 +38,7 @@ questions_attributes = [
     position: 2,
     choices_attributes: [
       { text: 'Take Credit', creative_quality: empowerment, score: -1 },
-      { text: 'Share Credit', creative_quality: empowerment, score: 1 }
+      { text: 'Share Credit', creative_quality: empowerment, score: 5 }
     ]
   },
   {
@@ -46,69 +46,69 @@ questions_attributes = [
     position: 3,
     choices_attributes: [
       { text: "Use our company's purpose to make decisions", creative_quality: purpose, score: 1 },
-      { text: "Don't think about our company's purpose because it's not relevant to us", creative_quality: purpose, score: -1 },
-      { text: "Don't know what our company's purpose is", creative_quality: purpose, score: -1 }
+      { text: "Don't think about our company's purpose because it's not relevant to us", creative_quality: purpose, score: -2 },
+      { text: "Don't know what our company's purpose is", creative_quality: purpose, score: -4 }
     ]
   },
   {
     title: "When developing and implementing solutions, how do different roles tend to work together?",
     position: 4,
     choices_attributes: [
-      { text: 'In Parallel—different functions work at the same time to completed?? different aspects of the project.', creative_quality: collaboration, score: 1 },
-      { text: 'In Series—like an assembly line. Different functions completed?? different aspects of the project in sequence, one role handing off to the next role when done with their portion.', creative_quality: collaboration, score: -1 }
+      { text: 'In Parallel—different functions work at the same time to complete?', creative_quality: collaboration, score: 7 },
+      { text: 'In Series—like an assembly line.', creative_quality: collaboration, score: -1 }
     ]
   },
   {
     title: 'When developing and implementing solutions, how often do different roles update each other?',
     position: 5,
     choices_attributes: [
-      { text: 'Multiple times a day', creative_quality: collaboration, score: 3 },
-      { text: 'Daily', creative_quality: collaboration, score: 2 },
-      { text: 'Weekly', creative_quality: collaboration, score: 1 },
-      { text: 'Monthly', creative_quality: collaboration, score: -1 },
-      { text: 'Every few months', creative_quality: collaboration, score: -2 },
-      { text: 'Rarely', creative_quality: collaboration, score: -3 }
+      { text: 'Multiple times a day', creative_quality: collaboration, score: 20 },
+      { text: 'Daily', creative_quality: collaboration, score: 16 },
+      { text: 'Weekly', creative_quality: collaboration, score: 12 },
+      { text: 'Monthly', creative_quality: collaboration, score: 8 },
+      { text: 'Every few months', creative_quality: collaboration, score: 4 },
+      { text: 'Rarely', creative_quality: collaboration, score: 0 }
     ]
   },
   {
     title: 'If my team does well, we can...',
     position: 6,
     choices_attributes: [
-      { text: 'Change the world', creative_quality: purpose, score: 3 },
-      { text: 'Change our industry', creative_quality: purpose, score: 2 },
-      { text: 'Radically change our department', creative_quality: purpose, score: 1 },
-      { text: 'Moderately change our department', creative_quality: purpose, score: -1 },
-      { text: 'It will be hard to see any change', creative_quality: purpose, score: -2 }
+      { text: 'Change the world', creative_quality: purpose, score: 2 },
+      { text: 'Change our industry', creative_quality: purpose, score: 1 },
+      { text: 'Radically change our department', creative_quality: purpose, score: -3 },
+      { text: 'Moderately change our department', creative_quality: purpose, score: -5 },
+      { text: 'It will be hard to see any change', creative_quality: purpose, score: -7 }
     ]
   },
   {
     title: 'If my team wanted to make a change to a current process or product...',
     position: 7,
     choices_attributes: [
-      { text: 'We could release it to customers without outside approval', creative_quality: empowerment, score: 1 },
-      { text: 'We could test the change with a significant portion of our customers without outside approval', creative_quality: empowerment, score: 1 },
+      { text: 'We could release it to customers without outside approval', creative_quality: empowerment, score: 3 },
+      { text: 'We could test the change with a significant portion of our customers without outside approval', creative_quality: empowerment, score: 3 },
       { text: 'We would need approval by our company\s leadership', creative_quality: empowerment, score: -1 },
-      { text: 'We would not be able to make such changes', creative_quality: empowerment, score: -2 }
+      { text: 'We would not be able to make such changes', creative_quality: empowerment, score: -1 }
     ]
   },
   {
     title: 'How much do you agree or disagree with the following statement: People at my company feel comfortable challenging the status quo.',
     position: 8,
     choices_attributes: [
-      { text: 'Strongly Agree', creative_quality: empowerment, score: 2 },
-      { text: 'Agree', creative_quality: empowerment, score: 1 },
-      { text: 'Disagree', creative_quality: empowerment, score: -1 },
-      { text: 'Strongly Disagree', creative_quality: empowerment, score: -2 }
+      { text: 'Strongly Agree', creative_quality: empowerment, score: 4 },
+      { text: 'Agree', creative_quality: empowerment, score: 3 },
+      { text: 'Disagree', creative_quality: empowerment, score: 0 },
+      { text: 'Strongly Disagree', creative_quality: empowerment, score: -1 }
     ]
   },
   {
     title: 'How much do you agree or disagree with the following statement: People at my company feel comfortable sharing new ideas.',
     position: 9,
     choices_attributes: [
-      { text: 'Strongly Agree', creative_quality: empowerment, score: 2 },
-      { text: 'Agree', creative_quality: empowerment, score: 1 },
-      { text: 'Disagree', creative_quality: empowerment, score: -1 },
-      { text: 'Strongly Disagree', creative_quality: empowerment, score: -2 }
+      { text: 'Strongly Agree', creative_quality: empowerment, score: 4 },
+      { text: 'Agree', creative_quality: empowerment, score: 3 },
+      { text: 'Disagree', creative_quality: empowerment, score: 1 },
+      { text: 'Strongly Disagree', creative_quality: empowerment, score: 0 }
     ]
   }
 ]
@@ -117,7 +117,7 @@ Question.create!(questions_attributes)
 
 seed = ENV['seed'] || 272357077412585388587190646617360543547
 random = Random.new(seed)
-ordered_questions = Question.order(position: :asc).includes(:choices)
+ordered_questions = Question.order(position: :asc).includes(:question_choices)
 
 100.times do
   response = Response.create(
@@ -129,8 +129,8 @@ ordered_questions = Question.order(position: :asc).includes(:choices)
     # Don't answer questions ~ 10% of the time
     next if random.rand(100) < 10
 
-    question_choice_i = random.rand(question.choices.size)
-    question_choice = question.choices[question_choice_i]
+    question_choice_i = random.rand(question.question_choices.size)
+    question_choice = question.question_choices[question_choice_i]
 
     QuestionResponse.create(
       response: response,

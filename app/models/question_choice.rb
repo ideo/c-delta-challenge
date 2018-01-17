@@ -1,5 +1,5 @@
 class QuestionChoice < ApplicationRecord
-  belongs_to :question, inverse_of: :choices
+  belongs_to :question
   belongs_to :creative_quality
 
   validates :text, presence: true

@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
-  has_many :choices, class_name: 'QuestionChoice', inverse_of: :question
+  has_many :question_choices
 
   validates :title, presence: true
 
-  accepts_nested_attributes_for(:choices)
+  accepts_nested_attributes_for(:question_choices)
 end

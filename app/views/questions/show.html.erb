@@ -10,10 +10,10 @@
 
     <%= bootstrap_form_for(@question) do |question_form| %>
       <table class="table">
-        <% @question.choices.each_with_index do |choice, index| %>
+        <% @question.question_choices.each_with_index do |question_choice, index| %>
           <% hide_label = index > 0 %>
 
-          <%= question_form.fields_for(:choices, choice) do |choice_fields| %>
+          <%= question_form.fields_for(:question_choices, question_choice) do |choice_fields| %>
             <tr>
               <td>
                 <%= choice_fields.text_field :text, readonly: true, hide_label: hide_label %>

@@ -22,7 +22,7 @@
       <%= render 'questions/header', question: question_response.question %>
 
       <table class="table table-bordered">
-        <% question_response.question.choices.each do |question_choice| %>
+        <% question_response.question.question_choices.each do |question_choice| %>
           <tr>
             <td>
               <% if question_choice == question_response.question_choice %>

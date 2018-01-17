@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20170215015037) do
 
   create_table "creative_qualities", force: :cascade do |t|
     t.string   "name"
+    t.string   "color"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
