@@ -4,19 +4,15 @@
 
 Hello! Welcome to the [IDEO Creative Difference](https://creativedifference.ideo.com) Rails challenge.
 
-This challenge will test your ability to write clean, intuitive, and well-tested Rails code – all things we care about deeply at IDEO!
+This challenge will test your ability to write clean, intuitive, and well-tested Ruby, HTML, CSS and Javascript – all things we care about deeply at IDEO!
 
-Please set aside **two hours** to complete this exercise. If it's taking you longer, feel free to stop and [head down to the reflection in Part 3](#Part 3: Reflection and Submission). Good luck!
+Please set aside **two hours** to complete this exercise. If it's taking you longer, feel free to stop and [head down to the reflection in Part 3](#part-3-reflection-and-submission). Good luck!
 
 ## Introduction
 
 This challenge contains an example Rails app with some pre-existing code and tests.
 
-![](public/screenshots/Creative_Difference-mockup.png)
-
-Your task will be to take the app in this repo and add new behavior to it! ([Jump to the challenge](#the-challenge))
-
-
+Your task will be to take the app in this repo and add new behavior to it!
 
 ## Environment Setup
 
@@ -26,11 +22,12 @@ Start by cloning this repository:
 $ git clone git@github.com:ideo/c-delta-challenge.git
 ```
 
-Next, install the project's dependencies using Bundler (run `gem install bundler` if you don't have it)
+Next, install the project's dependencies using Bundler (run `gem install bundler` if you don't have it). You'll need Ruby and Yarn installed before setting up the project's dependencies.
 
 ```bash
 $ cd c-delta-challenge
 $ bundle install
+$ yarn install
 ```
 
 Confirm that Rails works!
@@ -78,11 +75,11 @@ You're ready to start!
 
 ## A Quick Walkthrough
 
-Our demo app is a (very!) pared down version of our [Creative Difference](http://creativedifference.ideo.com) product, which helps organizations assess the different qualities that help make companies creatively competitive. We achieve this by surveying hundreds (or thousands) of employees across the organization and scoring their different creative qualities based on a rubric.
+Our demo app is a (very!) pared down version of our [Creative Difference](http://creativedifference.ideo.com) product, which helps organizations assess the different qualities that help make companies innovative. We achieve this by surveying hundreds (or thousands) of employees across the organization and scoring their responses based on a rubric.
 
-Based on the survey responses, the company gets a score for each Creative Quality which we help them analyze and improve on.
+Based on the survey responses, the company gets a score for each Creative Quality which we help them measure and take action to improve.
 
-If you run the server, the home page shows a very basic dashboard with three creative qualities: **Purpose**, **Empowerment**, and **Collaboration**.
+If you run the Rails server, the home page shows a very basic dashboard with three creative qualities: **Purpose**, **Empowerment**, and **Collaboration**.
 
 ![](public/screenshots/Walkthrough-Creative-Qualities.png)
 
@@ -94,9 +91,9 @@ Drilling down into a question lets you see the different answer choices and how 
 
 ![](public/screenshots/Walkthrough-Question.png)
 
-In this example, an answer of "Energizing" gives a 1 score for the **Purpose** creative quality. We have simplified the implementation in this challenge app, but in our production app, some questions have choices that impact more than one quality.
+In this example, an answer of "Energizing" gives a 1 score for the **Purpose** creative quality. We have simplified the implementation in this app, but in our production app, many questions have choices that impact more than one quality.
 
-Our seeds file also creates 100 survey responses. Click the **Responses** tab to see all of them.
+Our seeds file creates 100 survey responses -- click the **Responses** tab to see all of them.
 
 ![](public/screenshots/Walkthrough-Response-List.png)
 
@@ -109,6 +106,11 @@ Drilling down into a response lets you see how the respondent answered each ques
 That's the tour! Let's start the challenge.
 
 # The Challenge
+
+The challenge will take you through a few steps that include scoring survey responses, styling and creating a dashboard of final results that will look like this:
+
+![](public/screenshots/Creative_Difference-mockup.png)
+
 
 ## Part 1: Scoring Responses
 
@@ -130,7 +132,7 @@ When you're done, write a commit. If your code changes the behavior of any model
 
 ### 1.2: Scoring Creative Qualities for an entire response
 
-Next, we're diving into some complexity. We'd like to display the Creative Quality score for the entire response and display it at the top of the page:
+Next, we're diving into some complexity. Let's display the Creative Quality score for the entire response at the top of the page:
 
 ![](public/screenshots/2-2-Response-Set.png)
 
@@ -138,10 +140,12 @@ We score each Creative Quality by adding up the raw score for all of the respons
 
 In more detail:
 
-- The **raw score** is the sum of all of the scores chosen for that creative quality.
-  - **Example:** If I selected four question choices that impacted the **Purpose** quality with 3, 3, 2, and -1, then my raw score would be  `3 + 3 + 2 - 1 = 7`.
-- The **max score** is the highest possible score a respondent could've gotten _(ie: if you answered by choosing the highest value choice for each question)_. It is dynamic, because if you skip a question, we don't increase the max.
-  - **Example:** If you selected 6 question choices that are linked to **Purpose**, and each one had a question choice with a score of 2, then the max would be `10 * 6 = 60`
+- The **raw score** is the sum of all of the question response scores for that creative quality.
+  - **Example:** If I select four question choices that impact the **Purpose** quality with the scores 3, 3, 2, and -1, then my raw score for Purpose would be  `3 + 3 + 2 - 1 = 7`.
+- The **max score** is the highest possible score a respondent could've gotten for a quality _(ie: if you answered by choosing the highest value choice for each question that is linked to that quality)_. It is dynamic, because if you skip a question, we don't increase the max.
+  - **Example:** If you answered 6 questions with choices that are linked to **Purpose**, then the maximum score would be the sum of all the highest scoring choices linked to Purpose for those questions. For example, if the maximum scores were: 2, 1, 4, 3, 2, 3, then the max would be `2 + 1 + 4 + 3 + 2 + 3 = 15`
+
+Please update the response page to show the total, raw, and
 
 Write another commit when you're done (and yep –– test any behavior changes to models!).
 
@@ -149,42 +153,41 @@ Write another commit when you're done (and yep –– test any behavior change
 
 At this point you've completed scoring for individual question responses as well as for entire response sets.
 
-Now let's compute the final scores so that we can display them on the front page.
+Now let's compute the final scores across all responses so that we can display them on the front page, like this:
 
 ![](public/screenshots/2-3-Global-Scores.png)
 
-Global scoring is relatively simple:
+The **normalized score** (ie: **Collaboration: 73**) is the final score that we display per quality, and should be between -100 and 100.
 
-- The **normalized score** (ie: **Collaboration: 73**) is the final score that we display per quality, and should be between -100 and 100.
-  - Step 1: Add up the raw and max scores for this quality across all responses.
-  - Step 2: Divide the raw by the max and multiply it by 100 (_we also floor the value if > 100 or ceil if < -100_).
-  - (The formula is: `(total_raw_for_quality / total_max_for_quality) * 100`)
-  - **Example:** If across all responses, the total raw score for Collaboration is 240 and the max is 575, then the normalized score would be `(240 / 575) * 100 = 42`). Ceil or floor the value if it ends up outside the -100 to 100 bounds.
+- The formula is: `(total_raw_for_quality / total_max_for_quality) * 100`
+- Step 1: Add up the raw and max scores for this quality across all responses.
+- Step 2: Divide the raw by the max and multiply it by 100 (_we also floor the value if > 100 or ceil if < -100_).
+- **Example:** If across all responses, the total raw score for Collaboration is 240 and the max is 575, then the normalized score would be `(240 / 575) * 100 = 42`). Round to the nearest integer, and ceil or floor the value if it ends up outside the -100 to 100 bounds.
 
 Your tasks:
 
 - Compute the normalized score for each Creative Quality.
-- Display each Creative Quality's normalized score on the index page, rounded to the nearest integer.
+- Display each Creative Quality's normalized score on the index page.
 
 ## Part 2: Displaying the Results
 
 The home page lists three of the six Creative Qualities we see as essential to innovation within an organization. In this part, we're going to restyle the results, and then rewrite the view of the page to use AngularJS (v1.6) instead of Rails + ERB.
 
 ### Part 2.1: Re-styling the Creative Quality results
+
+Using the below screenshot as your guide, re-style the Creative Quality index page to look as similar to the mockup as possible. Don't worry about the "read more" link and truncating the descriptions, as you will be working on that in Part 2.2 below.
+
 ![](public/screenshots/Creative_Difference-mockup.png)
 
-Using the above screenshot as your guide, re-style the Creative Quality index page to look as similar to the mockup as possible. Don't worry about the "read more" link and truncating the descriptions, as you will be working on that in Part 2.2 below.
-
-This includes creating a progress bar that should correspond to the final (normalized) score of each quality. Note that scores range from -100 to 100, so the middle point of the bar (i.e. an "empty" bar) should represent a score of 0, negative scores should extend to the left, and positive scores should extend to the right, as shown above.
+You'll create a progress bar that corresponds to the final (normalized) score of each quality. Note that scores range from -100 to 100, so the middle point of the bar (i.e. an "empty" bar) should represent a score of 0, negative scores should extend to the left, and positive scores should extend to the right, as shown above.
 
 Resources:
 - Colors are already stored on each `CreativeQuality` object in the `color` field
-- Image assets for each quality: `/app/assets/images/qualityIcons`
-
+- Image assets for each quality are in this folder: `/app/assets/images/qualityIcons`
 
 ### Part 2.2: Using AngularJS to display and sort the Creative Qualities
 
-In order to make the application more friendly to a potential API backend, we'd like to start using Angular (v1.6) to power the Creative Quality display page.
+In order to make the application more dynamic and interactive, we'd like to start using Angular (v1.6) to power the index page.
 
 The site is already setup to use the [webpacker](https://github.com/rails/webpacker) gem and [Angular v1.6](https://code.angularjs.org/1.6.7/docs/api), and you'll find a basic `CreativeQualitiesController` already provided for you in the `/app/javascript/angular` directory.
 
@@ -194,19 +197,20 @@ You'll also see in `index.html.erb` that the Qualities are being output in JSON 
 $scope.creativeQualities = qualsJSON
 ```
 
-You should be able to setup your Angular controller in `index.html.erb`, replacing the ERB code (e.g. `<%= @creative_qualities.find_each...`).
+Please replace ERB code (e.g. `<%= @creative_qualities.find_each...`) with the Angular controller in `index.html.erb`. You can either keep the html code as-is, or turn it into a template.
 
 Your tasks:
 
-- Replace the Rails + ERB code in `index.html.erb` by implementing the Angular `CreativeQualitiesController` and writing the appropriate Angular HTML code.
-- Implement the "read more" on each description, so that each description is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
-- Add two sorting buttons somewhere on the page:
-  - **Sort by score** should sort Creative Qualities by score.
-  - **Sort by name** should sort Creative Qualities alphabetically.
+- Replace the Rails + ERB code in `index.html.erb` by implementing the provided Angular `CreativeQualitiesController` and writing the appropriate Angular HTML code.
+- Implement the "read more" link on each description, so that the text is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
+- Add two sorting buttons at the top right-hand corner of the page:
+  - **Sort by score** should sort the Creative Quality cards by score.
+  - **Sort by name** should sort the Creative Quality cards alphabetically by the name.
   - Clicking a button multiple times should toggle the sorting, e.g. low to high score, and then high to low score.
 
 :star: You're all done! Make a final commit of your work! :star:  
-\* Bonus points if you can add any integration or Angular tests to ensure end-to-end coverage
+
+\* Bonus points if you can add any integration or Angular tests to ensure end-to-end coverage :trophy:
 
 ## Part 3: Reflection and Submission
 

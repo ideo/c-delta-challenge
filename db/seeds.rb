@@ -18,7 +18,7 @@ questions_attributes = [
   {
     title: "If you had to be candid, how would you describe your company culture?",
     position: 0,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: 'Energizing', creative_quality: empowerment, score: 4 },
       { text: 'Draining', creative_quality: empowerment, score: -1 }
     ]
@@ -26,7 +26,7 @@ questions_attributes = [
   {
     title: 'How do you feel about this statement? "Leadership clearly articulates our company\'s purpose, beyond making money."',
     position: 1,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: 'Strongly Disagree', creative_quality: purpose, score: -1 },
       { text: 'Disagree', creative_quality: purpose, score: 0 },
       { text: 'Agree', creative_quality: purpose, score: 2 },
@@ -36,7 +36,7 @@ questions_attributes = [
   {
     title: "Finish this sentence: My boss tends to ...",
     position: 2,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: 'Take Credit', creative_quality: empowerment, score: -1 },
       { text: 'Share Credit', creative_quality: empowerment, score: 5 }
     ]
@@ -44,7 +44,7 @@ questions_attributes = [
   {
     title: 'When working in a group we usually...',
     position: 3,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: "Use our company's purpose to make decisions", creative_quality: purpose, score: 1 },
       { text: "Don't think about our company's purpose because it's not relevant to us", creative_quality: purpose, score: -2 },
       { text: "Don't know what our company's purpose is", creative_quality: purpose, score: -4 }
@@ -53,7 +53,7 @@ questions_attributes = [
   {
     title: "When developing and implementing solutions, how do different roles tend to work together?",
     position: 4,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: 'In Parallel—different functions work at the same time to complete?', creative_quality: collaboration, score: 7 },
       { text: 'In Series—like an assembly line.', creative_quality: collaboration, score: -1 }
     ]
@@ -61,7 +61,7 @@ questions_attributes = [
   {
     title: 'When developing and implementing solutions, how often do different roles update each other?',
     position: 5,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: 'Multiple times a day', creative_quality: collaboration, score: 20 },
       { text: 'Daily', creative_quality: collaboration, score: 16 },
       { text: 'Weekly', creative_quality: collaboration, score: 12 },
@@ -73,7 +73,7 @@ questions_attributes = [
   {
     title: 'If my team does well, we can...',
     position: 6,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: 'Change the world', creative_quality: purpose, score: 2 },
       { text: 'Change our industry', creative_quality: purpose, score: 1 },
       { text: 'Radically change our department', creative_quality: purpose, score: -3 },
@@ -84,7 +84,7 @@ questions_attributes = [
   {
     title: 'If my team wanted to make a change to a current process or product...',
     position: 7,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: 'We could release it to customers without outside approval', creative_quality: empowerment, score: 3 },
       { text: 'We could test the change with a significant portion of our customers without outside approval', creative_quality: empowerment, score: 3 },
       { text: 'We would need approval by our company\s leadership', creative_quality: empowerment, score: -1 },
@@ -94,7 +94,7 @@ questions_attributes = [
   {
     title: 'How much do you agree or disagree with the following statement: People at my company feel comfortable challenging the status quo.',
     position: 8,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: 'Strongly Agree', creative_quality: empowerment, score: 4 },
       { text: 'Agree', creative_quality: empowerment, score: 3 },
       { text: 'Disagree', creative_quality: empowerment, score: 0 },
@@ -104,7 +104,7 @@ questions_attributes = [
   {
     title: 'How much do you agree or disagree with the following statement: People at my company feel comfortable sharing new ideas.',
     position: 9,
-    choices_attributes: [
+    question_choices_attributes: [
       { text: 'Strongly Agree', creative_quality: empowerment, score: 4 },
       { text: 'Agree', creative_quality: empowerment, score: 3 },
       { text: 'Disagree', creative_quality: empowerment, score: 1 },
@@ -115,7 +115,7 @@ questions_attributes = [
 
 Question.create!(questions_attributes)
 
-seed = ENV['seed'] || 272357077412585388587190646617360543547
+seed = ENV['seed'] || Random.new_seed
 random = Random.new(seed)
 ordered_questions = Question.order(position: :asc).includes(:question_choices)
 
