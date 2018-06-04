@@ -8,15 +8,12 @@
 
 <!-- This is where the React app gets rendered -->
 <div id="react-root">
+  <!-- currently just rendering H2 title -->
 </div>
 
 <!-- This is the template that you should modify to use React instead of Rails -->
 <div class="row">
   <div class="col-md-12">
-    <h2>
-      Creative Qualities
-    </h2>
-
     <div class="row">
       <%= @creative_qualities.find_each do |creative_quality| %>
         <div class="col-md-4">
