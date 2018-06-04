@@ -34,7 +34,7 @@ Confirm that Rails works!
 
 ```bash
 $ rails --version
-Rails 5.0.1
+Rails 5.0.7
 ```
 
 Now set up your database:
@@ -62,7 +62,7 @@ Finally, run the Rails server and load the page at `http://localhost:3000`
 ```bash
 $ rails s
 => Booting Puma
-=> Rails 5.0.1 application starting in development on http://localhost:3000
+=> Rails 5.0.7 application starting in development on http://localhost:3000
 
 ...
 ```
