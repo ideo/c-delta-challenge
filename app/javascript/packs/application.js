@@ -7,9 +7,9 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 // -------
+import React from 'react'
+import { render } from 'react-dom'
 
-// Angular setup
-import angular from 'angular'
-import 'angular/modules'
+import App from '../components/App'
 
-angular.module('c-delta', ['c-delta.modules'])
+render(<App />, document.getElementById('react-root'))
