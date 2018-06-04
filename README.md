@@ -191,7 +191,7 @@ In order to make the application more dynamic and interactive, we'd like to star
 
 The site is already setup to use the [webpacker](https://github.com/rails/webpacker) gem and [React](https://5abc31d8be40f1556f06c4be--reactjs.netlify.com/docs/hello-world.html), and you'll find a basic `App.js` React component already provided for you in the `/app/javascript/components` directory.
 
-You'll also see in `index.html.erb` that the Qualities are being output in JSON like so:
+You'll also see in `index.html.erb` that the Qualities are being output in JSON like so, which you can access from React to render the appropriate data:
 
 ```javascript
 window.qualsJSON = [... qualities ...]
