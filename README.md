@@ -171,7 +171,7 @@ Your tasks:
 
 ## Part 2: Displaying the Results
 
-The home page lists three of the six Creative Qualities we see as essential to innovation within an organization. In this part, we're going to restyle the results, and then rewrite the view of the page to use AngularJS (v1.6) instead of Rails + ERB.
+The home page lists three of the six Creative Qualities we see as essential to innovation within an organization. In this part, we're going to restyle the results, and then rewrite the view of the page to use React (v16) instead of Rails + ERB.
 
 ### Part 2.1: Re-styling the Creative Quality results
 
@@ -185,23 +185,23 @@ Resources:
 - Colors are already stored on each `CreativeQuality` object in the `color` field
 - Image assets for each quality are in this folder: `/app/assets/images/qualityIcons`
 
-### Part 2.2: Using AngularJS to display and sort the Creative Qualities
+### Part 2.2: Using React to display and sort the Creative Qualities
 
-In order to make the application more dynamic and interactive, we'd like to start using Angular (v1.6) to power the index page.
+In order to make the application more dynamic and interactive, we'd like to start using React (v16) to power the index page.
 
-The site is already setup to use the [webpacker](https://github.com/rails/webpacker) gem and [Angular v1.6](https://code.angularjs.org/1.6.7/docs/api), and you'll find a basic `CreativeQualitiesController` already provided for you in the `/app/javascript/angular` directory.
+The site is already setup to use the [webpacker](https://github.com/rails/webpacker) gem and [React](https://5abc31d8be40f1556f06c4be--reactjs.netlify.com/docs/hello-world.html), and you'll find a basic `App.js` React component already provided for you in the `/app/javascript/components` directory.
 
-You'll also see in `index.html.erb` that the Qualities are being output in JSON and stored in the `CreativeQualitiesController` like so:
+You'll also see in `index.html.erb` that the Qualities are being output in JSON like so, which you can access from React to render the appropriate data:
 
 ```javascript
-$scope.creativeQualities = qualsJSON
+window.qualsJSON = [... qualities ...]
 ```
 
-Please replace ERB code (e.g. `<%= @creative_qualities.find_each...`) with the Angular controller in `index.html.erb`. You can either keep the html code as-is, or turn it into a template.
+Please replace the ERB code (e.g. `<%= @creative_qualities.find_each...`) with the React app being rendered in `<div id="react-root" />`, creating React components to render the creative qualities instead.
 
 Your tasks:
 
-- Replace the Rails + ERB code in `index.html.erb` by implementing the provided Angular `CreativeQualitiesController` and writing the appropriate Angular HTML code.
+- Replace the Rails + ERB code in `index.html.erb` by implementing the provided React `App.js` and writing the appropriate React JS and JSX code.
 - Implement the "read more" link on each description, so that the text is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
 - Add two sorting buttons at the top right-hand corner of the page:
   - **Sort by score** should sort the Creative Quality cards by score.
@@ -210,7 +210,7 @@ Your tasks:
 
 :star: You're all done! Make a final commit of your work! :star:  
 
-\* Bonus points if you can add any integration or Angular tests to ensure end-to-end coverage :trophy:
+\* Bonus points if you can add any JS tests for code coverage :trophy:
 
 ## Part 3: Reflection and Submission
 
@@ -228,7 +228,7 @@ If you had more time, are there any pieces of code (ours or yours) that you'd im
 
 ### A link to your code!
 
-Create a Github repo and send us the link!
+Create a Github repo (or a downloadable location e.g. dropbox) and send us the link!
 
 **Please do not fork this repo, as it will be publicly viewable for all other candidates.**
 

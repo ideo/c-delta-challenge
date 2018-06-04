@@ -10,7 +10,8 @@
         },
         "useBuiltIns": true
       }
-    ]
+    ],
+    "react"
   ],
   "plugins": [
     "syntax-dynamic-import",
