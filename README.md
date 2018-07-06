@@ -8,7 +8,7 @@ This challenge will test your ability to write clean, intuitive, and well-tested
 
 ## Choose which part(s) to do
 
-You are welcome to choose only one of the two parts (one hour each), or complete the entire challenge (about two hours).
+You are welcome to choose only one of the two parts (one hour each), or complete the entire challenge (about two hours). If you are choosing only one part, please choose the one that can show off your strongest skillset.
 
 **Part 1: Rails - build new back-end features and tests (~ 1 hour)**
 
