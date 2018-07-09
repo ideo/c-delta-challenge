@@ -46,7 +46,7 @@ Confirm that Rails works!
 
 ```bash
 $ rails --version
-Rails 5.0.7
+Rails 5.1.6
 ```
 
 Now set up your database:
@@ -122,7 +122,6 @@ The challenge will take you through a few steps that include scoring survey resp
 
 ![](public/screenshots/Creative_Difference-mockup.png)
 
-**
 
 **_If you're skipping to Part 2, please [head on down there](part-2-displaying-the-results)._**
 
