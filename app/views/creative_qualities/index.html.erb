@@ -1,9 +1,14 @@
 <script>
   /*
     Quick way to get creativeQualities to JS.
-    Would eventually be replaced with API call.
   */
   window.qualsJSON = <%== @creative_qualities.to_json %>
+
+  // If you have skipped Part 1, please comment out the above window.qualsJSON ...
+  // and uncomment this to generate the data you need for the React component(s):
+  //
+  // window.qualsJSON = <%== mock_creative_quality_scores.to_json %>
+  //
 </script>
 
 <!-- This is where the React app gets rendered -->

@@ -6,7 +6,19 @@ Hello! Welcome to the [IDEO Creative Difference](https://creativedifference.ideo
 
 This challenge will test your ability to write clean, intuitive, and well-tested Ruby, HTML, CSS and Javascript – all things we care about deeply at IDEO!
 
-Please set aside **two hours** to complete this exercise. If it's taking you longer, feel free to stop and [head down to the reflection in Part 3](#part-3-reflection-and-submission). Good luck!
+## Choose which part(s) to do
+
+You are welcome to choose only one of the two parts (one hour each), or complete the entire challenge (about two hours). If you are choosing only one part, please choose the one that can show off your strongest skillset.
+
+**Part 1: Rails - build new back-end features and tests (~ 1 hour)**
+
+**Part 2: React + CSS - build new React components and style them (~ 1 hour)**
+
+First, you'll need to set up the Rails environment first, detailed below in [Environment Setup](environment-setup).
+
+Then, once you're done with one or both parts, please [head down to the reflection and submission in Part 3](#part-3-reflection-and-submission).
+
+Good luck!
 
 ## Introduction
 
@@ -72,7 +84,6 @@ $ rails s
 You're ready to start!
 
 
-
 ## A Quick Walkthrough
 
 Our demo app is a (very!) pared down version of our [Creative Difference](http://creativedifference.ideo.com) product, which helps organizations assess the different qualities that help make companies innovative. We achieve this by surveying hundreds (or thousands) of employees across the organization and scoring their responses based on a rubric.
@@ -111,6 +122,9 @@ The challenge will take you through a few steps that include scoring survey resp
 
 ![](public/screenshots/Creative_Difference-mockup.png)
 
+**
+
+**_If you're skipping to Part 2, please [head on down there](part-2-displaying-the-results)._**
 
 ## Part 1: Scoring Responses
 
@@ -172,6 +186,10 @@ Your tasks:
 ## Part 2: Displaying the Results
 
 The home page lists three of the six Creative Qualities we see as essential to innovation within an organization. In this part, we're going to restyle the results, and then rewrite the view of the page to use React (v16) instead of Rails + ERB.
+
+**_If you have skipped Part 1, please uncomment the mock JSON at the top of `app/views/creative_qualities/index.html.erb`._**
+
+**_If you're skipping Part 2, please [head on down to the reflection](part-3-reflection-and-submission)._**
 
 ### Part 2.1: Re-styling the Creative Quality results
 
