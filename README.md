@@ -14,7 +14,7 @@ You are welcome to choose only one of the two parts (one hour each), or complete
 
 **Part 2: React + CSS - build new React components and style them (~ 1 hour)**
 
-First, you'll need to set up the Rails environment first, detailed below in [Environment Setup](environment-setup).
+First, you'll need to set up the Rails environment first, detailed below in [Environment Setup](#environment-setup).
 
 Then, once you're done with one or both parts, please [head down to the reflection and submission in Part 3](#part-3-reflection-and-submission).
 
@@ -123,7 +123,7 @@ The challenge will take you through a few steps that include scoring survey resp
 ![](public/screenshots/Creative_Difference-mockup.png)
 
 
-**_If you're skipping to Part 2, please [head on down there](part-2-displaying-the-results)._**
+**_If you're skipping to Part 2, please [head on down there](#part-2-displaying-the-results)._**
 
 ## Part 1: Scoring Responses
 
@@ -188,7 +188,7 @@ The home page lists three of the six Creative Qualities we see as essential to i
 
 **_If you have skipped Part 1, please uncomment the mock JSON at the top of `app/views/creative_qualities/index.html.erb`._**
 
-**_If you're skipping Part 2, please [head on down to the reflection](part-3-reflection-and-submission)._**
+**_If you're skipping Part 2, please [head on down to the reflection](#part-3-reflection-and-submission)._**
 
 ### Part 2.1: Re-styling the Creative Quality results
 
