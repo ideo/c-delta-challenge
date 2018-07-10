@@ -6,17 +6,17 @@ Hello! Welcome to the [IDEO Creative Difference](https://creativedifference.ideo
 
 This challenge will test your ability to write clean, intuitive, and well-tested Ruby, HTML, CSS and Javascript – all things we care about deeply at IDEO!
 
-## Choose which part(s) to do
+## Choose which part to do
 
-You are welcome to choose only one of the two parts (one hour each), or complete the entire challenge (about two hours). If you are choosing only one part, please choose the one that can show off your strongest skillset.
+Please choose one of the two parts that can show off your strongest skillset(s):
 
 **Part 1: Rails - build new back-end features and tests (~ 1 hour)**
 
 **Part 2: React + CSS - build new React components and style them (~ 1 hour)**
 
-First, you'll need to set up the Rails environment first, detailed below in [Environment Setup](#environment-setup).
+First, you'll need to set up the Rails environment, detailed below in [Environment Setup](#environment-setup).
 
-Then, once you're done with one or both parts, please [head down to the reflection and submission in Part 3](#part-3-reflection-and-submission).
+Then, once you're done with the part you have chosen, please [head down to the reflection and submission in Part 3](#part-3-reflection-and-submission).
 
 Good luck!
 
@@ -190,19 +190,7 @@ The home page lists three of the six Creative Qualities we see as essential to i
 
 **_If you're skipping Part 2, please [head on down to the reflection](#part-3-reflection-and-submission)._**
 
-### Part 2.1: Re-styling the Creative Quality results
-
-Using the below screenshot as your guide, re-style the Creative Quality index page to look as similar to the mockup as possible. Don't worry about the "read more" link and truncating the descriptions, as you will be working on that in Part 2.2 below.
-
-![](public/screenshots/Creative_Difference-mockup.png)
-
-You'll create a progress bar that corresponds to the final (normalized) score of each quality. Note that scores range from -100 to 100, so the middle point of the bar (i.e. an "empty" bar) should represent a score of 0, negative scores should extend to the left, and positive scores should extend to the right, as shown above.
-
-Resources:
-- Colors are already stored on each `CreativeQuality` object in the `color` field
-- Image assets for each quality are in this folder: `/app/assets/images/qualityIcons`
-
-### Part 2.2: Using React to display and sort the Creative Qualities
+### Part 2.1: Using React to display and sort the Creative Qualities
 
 In order to make the application more dynamic and interactive, we'd like to start using React (v16) to power the index page.
 
@@ -224,6 +212,18 @@ Your tasks:
   - **Sort by score** should sort the Creative Quality cards by score.
   - **Sort by name** should sort the Creative Quality cards alphabetically by the name.
   - Clicking a button multiple times should toggle the sorting, e.g. low to high score, and then high to low score.
+
+### Part 2.2: Re-styling the Creative Quality results
+
+Using the below screenshot as your guide, re-style the Creative Quality index page to look as similar to the mockup as possible.
+
+![](public/screenshots/Creative_Difference-mockup.png)
+
+You'll create a progress bar that corresponds to the final (normalized) score of each quality. Note that scores range from -100 to 100, so the middle point of the bar (i.e. an "empty" bar) should represent a score of 0, negative scores should extend to the left, and positive scores should extend to the right, as shown above.
+
+Resources:
+- Colors are already stored on each `CreativeQuality` object in the `color` field
+- Image assets for each quality are in this folder: `/app/assets/images/qualityIcons`
 
 :star: You're all done! Make a final commit of your work! :star:  
 
