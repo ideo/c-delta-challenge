@@ -83,7 +83,6 @@ $ rails s
 
 You're ready to start!
 
-
 ## A Quick Walkthrough
 
 Our demo app is a (very!) pared down version of our [Creative Difference](http://creativedifference.ideo.com) product, which helps organizations assess the different qualities that help make companies innovative. We achieve this by surveying hundreds (or thousands) of employees across the organization and scoring their responses based on a rubric.
@@ -122,7 +121,6 @@ The challenge will take you through a few steps that include scoring survey resp
 
 ![](public/screenshots/Creative_Difference-mockup.png)
 
-
 **_If you're skipping to Part 2, please [head on down there](#part-2-displaying-the-results)._**
 
 ## Part 1: Scoring Responses
@@ -154,11 +152,11 @@ We score each Creative Quality by adding up the raw score for all of the respons
 In more detail:
 
 - The **raw score** is the sum of all of the question response scores for that creative quality.
-  - **Example:** If I select four question choices that impact the **Purpose** quality with the scores 3, 3, 2, and -1, then my raw score for Purpose would be  `3 + 3 + 2 - 1 = 7`.
+  - **Example:** If I select four question choices that impact the **Purpose** quality with the scores 3, 3, 2, and -1, then my raw score for Purpose would be `3 + 3 + 2 - 1 = 7`.
 - The **max score** is the highest possible score a respondent could've gotten for a quality _(ie: if you answered by choosing the highest value choice for each question that is linked to that quality)_. It is dynamic, because if you skip a question, we don't increase the max.
   - **Example:** If you answered 6 questions with choices that are linked to **Purpose**, then the maximum score would be the sum of all the highest scoring choices linked to Purpose for those questions. For example, if the maximum scores were: 2, 1, 4, 3, 2, 3, then the max would be `2 + 1 + 4 + 3 + 2 + 3 = 15`
 
-Please update the response page to show the total, raw, and
+Please update the response page to show the raw and max for each quality.
 
 Write another commit when you're done (and yep –– test any behavior changes to models!).
 
@@ -222,10 +220,11 @@ Using the below screenshot as your guide, re-style the Creative Quality index pa
 You'll create a progress bar that corresponds to the final (normalized) score of each quality. Note that scores range from -100 to 100, so the middle point of the bar (i.e. an "empty" bar) should represent a score of 0, negative scores should extend to the left, and positive scores should extend to the right, as shown above.
 
 Resources:
+
 - Colors are already stored on each `CreativeQuality` object in the `color` field
 - Image assets for each quality are in this folder: `/app/assets/images/qualityIcons`
 
-:star: You're all done! Make a final commit of your work! :star:  
+:star: You're all done! Make a final commit of your work! :star:
 
 \* Bonus points if you can add any JS tests for code coverage :trophy:
 
@@ -248,7 +247,6 @@ If you had more time, are there any pieces of code (ours or yours) that you'd im
 Create a Github repo (or a downloadable location e.g. dropbox) and send us the link!
 
 **Please do not fork this repo, as it will be publicly viewable for all other candidates.**
-
 
 ## Thanks!
 
