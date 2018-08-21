@@ -20,7 +20,7 @@ gem 'webpacker', '~> 3.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
   gem 'rspec-rails'

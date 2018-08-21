@@ -151,10 +151,10 @@ We score each Creative Quality by adding up the raw score for all of the respons
 
 In more detail:
 
-- The **raw score** is the sum of all of the question response scores for that creative quality.
-  - **Example:** If I select four question choices that impact the **Purpose** quality with the scores 3, 3, 2, and -1, then my raw score for Purpose would be `3 + 3 + 2 - 1 = 7`.
-- The **max score** is the highest possible score a respondent could've gotten for a quality _(ie: if you answered by choosing the highest value choice for each question that is linked to that quality)_. It is dynamic, because if you skip a question, we don't increase the max.
-  - **Example:** If you answered 6 questions with choices that are linked to **Purpose**, then the maximum score would be the sum of all the highest scoring choices linked to Purpose for those questions. For example, if the maximum scores were: 2, 1, 4, 3, 2, 3, then the max would be `2 + 1 + 4 + 3 + 2 + 3 = 15`
+* The **raw score** is the sum of all of the question response scores for that creative quality.
+  * **Example:** If I select four question choices that impact the **Purpose** quality with the scores 3, 3, 2, and -1, then my raw score for Purpose would be `3 + 3 + 2 - 1 = 7`.
+* The **max score** is the highest possible score a respondent could've gotten for a quality _(ie: if you answered by choosing the highest value choice for each question that is linked to that quality)_. It is dynamic, because if you skip a question, we don't increase the max.
+  * **Example:** If you answered 6 questions with choices that are linked to **Purpose**, then the maximum score would be the sum of all the highest scoring choices linked to Purpose for those questions. For example, if the maximum scores were: 2, 1, 4, 3, 2, 3, then the max would be `2 + 1 + 4 + 3 + 2 + 3 = 15`
 
 Please update the response page to show the raw and max for each quality.
 
@@ -170,15 +170,15 @@ Now let's compute the final scores across all responses so that we can display t
 
 The **normalized score** (ie: **Collaboration: 73**) is the final score that we display per quality, and should be between -100 and 100.
 
-- The formula is: `(total_raw_for_quality / total_max_for_quality) * 100`
-- Step 1: Add up the raw and max scores for this quality across all responses.
-- Step 2: Divide the raw by the max and multiply it by 100 (_we also floor the value if > 100 or ceil if < -100_).
-- **Example:** If across all responses, the total raw score for Collaboration is 240 and the max is 575, then the normalized score would be `(240 / 575) * 100 = 42`). Round to the nearest integer, and ceil or floor the value if it ends up outside the -100 to 100 bounds.
+* The formula is: `(total_raw_for_quality / total_max_for_quality) * 100`
+* Step 1: Add up the raw and max scores for this quality across all responses.
+* Step 2: Divide the raw by the max and multiply it by 100 (_we also floor the value if > 100 or ceil if < -100_).
+* **Example:** If across all responses, the total raw score for Collaboration is 240 and the max is 575, then the normalized score would be `(240 / 575) * 100 = 42`). Round to the nearest integer, and ceil or floor the value if it ends up outside the -100 to 100 bounds.
 
 Your tasks:
 
-- Compute the normalized score for each Creative Quality.
-- Display each Creative Quality's normalized score on the index page.
+* Compute the normalized score for each Creative Quality.
+* Display each Creative Quality's normalized score on the index page.
 
 ## Part 2: Displaying the Results
 
@@ -204,12 +204,12 @@ Please replace the ERB code (e.g. `<%= @creative_qualities.find_each...`) with t
 
 Your tasks:
 
-- Replace the Rails + ERB code in `index.html.erb` by implementing the provided React `App.js` and writing the appropriate React JS and JSX code.
-- Implement the "read more" link on each description, so that the text is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
-- Add two sorting buttons at the top right-hand corner of the page:
-  - **Sort by score** should sort the Creative Quality cards by score.
-  - **Sort by name** should sort the Creative Quality cards alphabetically by the name.
-  - Clicking a button multiple times should toggle the sorting, e.g. low to high score, and then high to low score.
+* Replace the Rails + ERB code in `index.html.erb` by implementing the provided React `App.js` and writing the appropriate React JS and JSX code.
+* Implement the "read more" link on each description, so that the text is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
+* Add two sorting buttons at the top right-hand corner of the page:
+  * **Sort by score** should sort the Creative Quality cards by score.
+  * **Sort by name** should sort the Creative Quality cards alphabetically by the name.
+  * Clicking a button multiple times should toggle the sorting, e.g. low to high score, and then high to low score.
 
 ### Part 2.2: Re-styling the Creative Quality results
 
@@ -221,8 +221,8 @@ You'll create a progress bar that corresponds to the final (normalized) score of
 
 Resources:
 
-- Colors are already stored on each `CreativeQuality` object in the `color` field
-- Image assets for each quality are in this folder: `/app/assets/images/qualityIcons`
+* Colors are already stored on each `CreativeQuality` object in the `color` field
+* Image assets for each quality are in this folder: `/app/assets/images/qualityIcons`
 
 :star: You're all done! Make a final commit of your work! :star:
 
@@ -244,7 +244,7 @@ If you had more time, are there any pieces of code (ours or yours) that you'd im
 
 ### A link to your code!
 
-Create a Github repo (or a downloadable location e.g. dropbox) and send us the link!
+Create a private or public Github repo with your challenge and send us the link!
 
 **Please do not fork this repo, as it will be publicly viewable for all other candidates.**
 
