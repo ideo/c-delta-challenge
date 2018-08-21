@@ -56,9 +56,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  # Use create, build, etc instead of FactoryGirl prefix
-  # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#using-factories
-  config.include FactoryGirl::Syntax::Methods
+  # Add methods so you can use create, build, etc instead of FactoryBot prefix
+  config.include FactoryBot::Syntax::Methods
 end
 
 Shoulda::Matchers.configure do |config|

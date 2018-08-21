@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :question_choice do
     question
     creative_quality
