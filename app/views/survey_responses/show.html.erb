@@ -9,7 +9,7 @@
 
       <div class="panel-body">
         Completed
-        <%= @response.question_responses_count %>
+        <%= @response.answers_count %>
         of
         <%= Question.count %>
         questions
@@ -18,7 +18,7 @@
 
     <hr>
 
-    <% @response.question_responses.each do |question_response| %>
+    <% @response.answers.each do |question_response| %>
       <%= render 'questions/header', question: question_response.question %>
 
       <table class="table table-bordered">

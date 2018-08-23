@@ -1,9 +1,9 @@
-class QuestionResponse < ApplicationRecord
+class Answer < ApplicationRecord
   belongs_to :question_choice
-  belongs_to :response
+  belongs_to :survey_response
 
   validates :question_choice, presence: true
-  validates :response, presence: true
+  validates :survey_response, presence: true
 
   delegate :question, to: :question_choice
 end

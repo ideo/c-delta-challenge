@@ -103,15 +103,15 @@ Drilling down into a question lets you see the different answer choices and how 
 
 In this example, an answer of "Energizing" gives a 1 score for the **Purpose** creative quality. We have simplified the implementation in this app, but in our production app, many questions have choices that impact more than one quality.
 
-Our seeds file creates 100 survey responses -- click the **Responses** tab to see all of them.
+Our seeds file creates 100 survey responses -- click the **SurveyResponses** tab to see all of them.
 
-![](public/screenshots/Walkthrough-Response-List.png)
+![](public/screenshots/Walkthrough-SurveyResponse-List.png)
 
 A response is "completed" if all of the 10 questions have been answered.
 
 Drilling down into a response lets you see how the respondent answered each question (their answer is in **bold**):
 
-![](public/screenshots/Walkthrough-Response.png)
+![](public/screenshots/Walkthrough-SurveyResponse.png)
 
 That's the tour! Let's start the challenge.
 
@@ -123,7 +123,7 @@ The challenge will take you through a few steps that include scoring survey resp
 
 **_If you're skipping to Part 2, please [head on down there](#part-2-displaying-the-results)._**
 
-## Part 1: Scoring Responses
+## Part 1: Scoring SurveyResponses
 
 When viewing a question, you'll notice that each choice affects a particular Creative Quality either positively or negatively.
 
@@ -135,7 +135,7 @@ This means that if a respondent chooses "Draining," the score for "Purpose" is d
 
 Update the `response#show` page to show how each question response impacts Creative Quality scores, as follows:
 
-![](public/screenshots/2-1-Single-Response.png)
+![](public/screenshots/2-1-Single-SurveyResponse.png)
 
 If a score is impacted positively, color it in green. If it's impacted negatively, color it red (you can use [Bootstrap](http://getbootstrap.com/docs/3.3/) for this).
 
@@ -145,7 +145,7 @@ When you're done, write a commit. If your code changes the behavior of any model
 
 Next, we're diving into some complexity. Let's display the Creative Quality score for the entire response at the top of the page:
 
-![](public/screenshots/2-2-Response-Set.png)
+![](public/screenshots/2-2-SurveyResponse-Set.png)
 
 We score each Creative Quality by adding up the raw score for all of the responses where someone chose a choice associated with that creative quality, and divide that by the maximum possible positive score for that quality.
 

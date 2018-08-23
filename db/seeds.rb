@@ -120,7 +120,7 @@ random = Random.new(seed)
 ordered_questions = Question.order(position: :asc).includes(:question_choices)
 
 100.times do
-  response = Response.create(
+  survey_response = SurveyResponse.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
   )
@@ -132,8 +132,8 @@ ordered_questions = Question.order(position: :asc).includes(:question_choices)
     question_choice_i = random.rand(question.question_choices.size)
     question_choice = question.question_choices[question_choice_i]
 
-    QuestionResponse.create(
-      response: response,
+    Answer.create(
+      survey_response: survey_response,
       question_choice: question_choice
     )
   end

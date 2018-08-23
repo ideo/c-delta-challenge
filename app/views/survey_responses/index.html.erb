@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-8">
     <h2>
-      Responses
+      Survey Responses
     </h2>
 
     <table class="table">
@@ -14,14 +14,14 @@
       </thead>
 
       <tbody>
-        <% @responses.find_each do |response| %>
+        <% @responses.find_each do |survey_response| %>
           <tr>
             <td>
-              <%= truncate(response.display_name, length: 90) %>
+              <%= truncate(survey_response.display_name, length: 90) %>
             </td>
 
             <td>
-              <% if response.completed? %>
+              <% if survey_response.completed? %>
                 Yes
               <% else %>
                 <span class="text-danger">No</span>
@@ -29,7 +29,7 @@
             </td>
 
             <td>
-              <%= link_to 'View', response_path(response), class: 'btn btn-default btn-xs' %>
+              <%= link_to 'View', survey_response, class: 'btn btn-default btn-xs' %>
             </td>
           </tr>
         <% end %>
