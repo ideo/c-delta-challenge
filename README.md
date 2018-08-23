@@ -180,13 +180,15 @@ Your tasks:
 * Compute the normalized score for each Creative Quality.
 * Display each Creative Quality's normalized score on the index page.
 
+:star: Make a commit of your work! :star:
+
+**_If you're skipping Part 2, please [head on down to the reflection](#part-3-reflection-and-submission)._**
+
 ## Part 2: Displaying the Results
 
 The home page lists three of the six Creative Qualities we see as essential to innovation within an organization. In this part, we're going to restyle the results, and then rewrite the view of the page to use React (v16) instead of Rails + ERB.
 
 **_If you have skipped Part 1, please uncomment the mock JSON at the top of `app/views/creative_qualities/index.html.erb`._**
-
-**_If you're skipping Part 2, please [head on down to the reflection](#part-3-reflection-and-submission)._**
 
 ### Part 2.1: Using React to display and sort the Creative Qualities
 
@@ -210,6 +212,8 @@ Your tasks:
   * **Sort by score** should sort the Creative Quality cards by score.
   * **Sort by name** should sort the Creative Quality cards alphabetically by the name.
   * Clicking a button multiple times should toggle the sorting, e.g. low to high score, and then high to low score.
+
+:star: Great! Please make a commit of your work. :star:
 
 ### Part 2.2: Re-styling the Creative Quality results
 
