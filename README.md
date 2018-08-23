@@ -85,7 +85,7 @@ You're ready to start!
 
 ## A Quick Walkthrough
 
-Our demo app is a (very!) pared down version of our [Creative Difference](http://creativedifference.ideo.com) product, which helps organizations assess the different qualities that help make companies innovative. We achieve this by surveying hundreds (or thousands) of employees across the organization and scoring their responses based on a rubric.
+Our demo app is a (very!) pared down version of our [Creative Difference](http://creativedifference.ideo.com) product, which helps organizations assess the different qualities that help make companies innovative. We achieve this by surveying hundreds (or thousands) of employees across the organization and scoring their survey responses based on a rubric.
 
 Based on the survey responses, the company gets a score for each Creative Quality which we help them measure and take action to improve.
 
@@ -103,13 +103,13 @@ Drilling down into a question lets you see the different answer choices and how 
 
 In this example, an answer of "Energizing" gives a 1 score for the **Purpose** creative quality. We have simplified the implementation in this app, but in our production app, many questions have choices that impact more than one quality.
 
-Our seeds file creates 100 survey responses -- click the **SurveyResponses** tab to see all of them.
+Our seeds file creates 100 survey responses -- click the **Survey Responses** tab to see all of them.
 
 ![](public/screenshots/Walkthrough-SurveyResponse-List.png)
 
-A response is "completed" if all of the 10 questions have been answered.
+A survey response is "completed" if all of the 10 questions have been answered.
 
-Drilling down into a response lets you see how the respondent answered each question (their answer is in **bold**):
+Drilling down into a survey response lets you see how the respondent answered each question (their answer is in **bold**):
 
 ![](public/screenshots/Walkthrough-SurveyResponse.png)
 
@@ -131,49 +131,49 @@ When viewing a question, you'll notice that each choice affects a particular Cre
 
 This means that if a respondent chooses "Draining," the score for "Purpose" is decreased by 1.
 
-### 1.1: Scoring Creative Qualities for a single response to a question
+### 1.1: Scoring Creative Qualities for a single answer to a question
 
-Update the `response#show` page to show how each question response impacts Creative Quality scores, as follows:
+Update the `response#show` page to show how each survey response's answer impacts Creative Quality scores, as follows:
 
-![](public/screenshots/2-1-Single-SurveyResponse.png)
+![](public/screenshots/2-1-Single-Survey-Response.png)
 
 If a score is impacted positively, color it in green. If it's impacted negatively, color it red (you can use [Bootstrap](http://getbootstrap.com/docs/3.3/) for this).
 
 When you're done, write a commit. If your code changes the behavior of any models, make sure that behavior is tested!
 
-### 1.2: Scoring Creative Qualities for an entire response
+### 1.2: Scoring Creative Qualities for an entire survey response
 
-Next, we're diving into some complexity. Let's display the Creative Quality score for the entire response at the top of the page:
+Next, we're diving into some complexity. Let's display the Creative Quality score for the entire survey response at the top of the page:
 
-![](public/screenshots/2-2-SurveyResponse-Set.png)
+![](public/screenshots/2-2-Survey-Response-Set.png)
 
-We score each Creative Quality by adding up the raw score for all of the responses where someone chose a choice associated with that creative quality, and divide that by the maximum possible positive score for that quality.
+We score each Creative Quality for a survey response by adding up the raw score for all of the answers where someone chose a choice associated with that creative quality, and divide that by the maximum possible positive score for that quality.
 
 In more detail:
 
-* The **raw score** is the sum of all of the question response scores for that creative quality.
+* The **raw score** is the sum of all of the question choice scores for that creative quality, for an individual survey response.
   * **Example:** If I select four question choices that impact the **Purpose** quality with the scores 3, 3, 2, and -1, then my raw score for Purpose would be `3 + 3 + 2 - 1 = 7`.
-* The **max score** is the highest possible score a respondent could've gotten for a quality _(ie: if you answered by choosing the highest value choice for each question that is linked to that quality)_. It is dynamic, because if you skip a question, we don't increase the max.
+* The **max score** is the highest possible score a respondent could've gotten for a quality, if they answer all the questions _(ie: if you answered by choosing the highest value choice per question that is linked to that quality)_. It is static, because if you skip a question, we don't increase the max.
   * **Example:** If you answered 6 questions with choices that are linked to **Purpose**, then the maximum score would be the sum of all the highest scoring choices linked to Purpose for those questions. For example, if the maximum scores were: 2, 1, 4, 3, 2, 3, then the max would be `2 + 1 + 4 + 3 + 2 + 3 = 15`
 
-Please update the response page to show the raw and max for each quality.
+Please update the survey response page to show the raw and max for each quality.
 
 Write another commit when you're done (and yep –– test any behavior changes to models!).
 
 ### 1.3 Scoring Creative Qualities globally
 
-At this point you've completed scoring for individual question responses as well as for entire response sets.
+At this point you've completed scoring for individual survey responses as well as for entire survey response sets.
 
-Now let's compute the final scores across all responses so that we can display them on the front page, like this:
+Now let's compute the final scores across all survey responses so that we can display them on the front page, like this:
 
 ![](public/screenshots/2-3-Global-Scores.png)
 
 The **normalized score** (ie: **Collaboration: 73**) is the final score that we display per quality, and should be between -100 and 100.
 
 * The formula is: `(total_raw_for_quality / total_max_for_quality) * 100`
-* Step 1: Add up the raw and max scores for this quality across all responses.
-* Step 2: Divide the raw by the max and multiply it by 100 (_we also floor the value if > 100 or ceil if < -100_).
-* **Example:** If across all responses, the total raw score for Collaboration is 240 and the max is 575, then the normalized score would be `(240 / 575) * 100 = 42`). Round to the nearest integer, and ceil or floor the value if it ends up outside the -100 to 100 bounds.
+* Step 1: Add up the raw and max scores for this quality across all survey responses.
+* Step 2: Divide the raw by the max and multiply it by 100 (_we also clamp the value if > 100 or < -100_).
+* **Example:** If across all survey responses, the total raw score for Collaboration is 240 and the max is 575, then the normalized score would be `(240 / 575) * 100 = 42`). Round to the nearest integer, and clamp the value if it ends up outside the -100 to 100 bounds.
 
 Your tasks:
 
