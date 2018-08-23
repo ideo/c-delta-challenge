@@ -3,13 +3,13 @@
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3>
-          <%= @response.display_name %>
+          <%= @survey_response.display_name %>
         </h3>
       </div>
 
       <div class="panel-body">
         Completed
-        <%= @response.answers_count %>
+        <%= @survey_response.answers_count %>
         of
         <%= Question.count %>
         questions
@@ -18,7 +18,7 @@
 
     <hr>
 
-    <% @response.answers.each do |question_response| %>
+    <% @survey_response.answers.each do |question_response| %>
       <%= render 'questions/header', question: question_response.question %>
 
       <table class="table table-bordered">

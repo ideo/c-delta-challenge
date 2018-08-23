@@ -14,7 +14,7 @@
       </thead>
 
       <tbody>
-        <% @responses.find_each do |survey_response| %>
+        <% @survey_responses.each do |survey_response| %>
           <tr>
             <td>
               <%= truncate(survey_response.display_name, length: 90) %>
