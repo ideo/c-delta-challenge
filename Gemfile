@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.4.3'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -13,9 +14,9 @@ gem 'bootstrap_form'
 gem 'bootswatch-rails'
 gem 'jquery-rails'
 gem 'puma', '~> 3.0'
+gem 'react-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'react-rails'
 gem 'webpacker', '~> 3.0'
 
 group :development, :test do
@@ -38,4 +39,5 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
 end
 
-ruby '2.4.3'
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
