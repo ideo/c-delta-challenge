@@ -246,7 +246,7 @@ Tell us what you thought of this coding challenge. What did you like? What did y
 
 If you had more time, are there any pieces of code (ours or yours) that you'd improve? How so and why?
 
-### A link to your code!
+### A link to your code on Github!
 
 Create a private or public Github repo with your challenge and send us the link!
 
