@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170215015037) do
 
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_choice_id"
+    t.integer "survey_response_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_choice_id"], name: "index_answers_on_question_choice_id"
+    t.index ["survey_response_id"], name: "index_answers_on_survey_response_id"
+  end
+
   create_table "creative_qualities", force: :cascade do |t|
     t.string "name"
     t.string "color"
@@ -31,15 +40,6 @@ ActiveRecord::Schema.define(version: 20170215015037) do
     t.index ["question_id"], name: "index_question_choices_on_question_id"
   end
 
-  create_table "question_responses", force: :cascade do |t|
-    t.integer "question_choice_id"
-    t.integer "response_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_choice_id"], name: "index_question_responses_on_question_choice_id"
-    t.index ["response_id"], name: "index_question_responses_on_response_id"
-  end
-
   create_table "questions", force: :cascade do |t|
     t.text "title"
     t.integer "position"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170215015037) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "responses", force: :cascade do |t|
+  create_table "survey_responses", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.datetime "created_at", null: false

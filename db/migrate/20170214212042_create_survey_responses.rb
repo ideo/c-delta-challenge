@@ -1,6 +1,6 @@
-class CreateResponses < ActiveRecord::Migration[5.0]
+class CreateSurveyResponses < ActiveRecord::Migration[5.0]
   def change
-    create_table :responses do |t|
+    create_table :survey_responses do |t|
       t.string :first_name
       t.string :last_name
 
