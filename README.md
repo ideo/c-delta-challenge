@@ -74,7 +74,7 @@ Finally, run the Rails server and load the page at `http://localhost:3000`
 ```bash
 $ rails s
 => Booting Puma
-=> Rails 5.0.7 application starting in development on http://localhost:3000
+=> Rails 5.1.6 application starting in development on http://localhost:3000
 
 ...
 ```
