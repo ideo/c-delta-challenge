@@ -1,6 +1,6 @@
 module ApplicationHelper
   def mock_creative_quality_scores
-    scores = [67, -25, 67]
+    scores = [67, -25, 50]
     data = []
 
     CreativeQuality
