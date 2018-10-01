@@ -190,30 +190,37 @@ The home page lists three of the six Creative Qualities we see as essential to i
 
 **_If you have skipped Part 1, please uncomment the mock JSON at the top of `app/views/creative_qualities/index.html.erb`._**
 
-### Part 2.1: Using React to display and sort the Creative Qualities
+### Part 2.1: Using React to display the Creative Qualities
 
 In order to make the application more dynamic and interactive, we'd like to start using React (v16) to power the index page.
 
 The site is already setup to use the [webpacker](https://github.com/rails/webpacker) gem and [React](https://5abc31d8be40f1556f06c4be--reactjs.netlify.com/docs/hello-world.html), and you'll find a basic `App.js` React component already provided for you in the `/app/javascript/components` directory.
 
-You'll also see in `index.html.erb` that the Qualities are being output in JSON like so, which you can access from React to render the appropriate data:
+There is also an **API endpoint** where you can retrieve the creative quality data: `http://localhost:3000/creative_qualities.json`
 
-```javascript
-window.qualsJSON = [... qualities ...]
-```
-
-Please replace the ERB code (e.g. `<%= @creative_qualities.find_each...`) with the React app being rendered in `<div id="react-root" />`, creating React components to render the creative qualities instead.
+The Rails template is currently making use of the stylesheet in `qualities.scss`, which you can reference as you create your React components.
 
 Your tasks:
 
-* Replace the Rails + ERB code in `index.html.erb` by implementing the provided React `App.js` and writing the appropriate React JS and JSX code.
-* Implement the "read more" link on each description, so that the text is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
+* Use the API endpoint above to load the creative quality data into your React application. We have included [react-refetch](https://github.com/heroku/react-refetch) in `package.json` but feel free to use any package you like for fetching data.
+* Replace the Rails + ERB code in `index.html.erb` by implementing the provided React `App.js` and creating React components to render the creative qualities.
+* Replace the styling provided in `qualities.scss` with a CSS-in-JS solution so that the styling is more tightly coupled with the React components. We have included [styled-components](https://www.styled-components.com/) with a very simple example in `App.js`, but feel free to use any package you like.
+
+:star: Great! Please make a `git commit` of your work for this part. :star:
+
+### Part 2.2: Adding dynamic sort and display capabilities
+
+Now that the creative qualities are displayed in React, we'd like to add some other UI features.
+
+Your tasks:
+
+* Implement a "read more" link on each description, so that the text is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
 * Add two sorting buttons at the top right-hand corner of the page:
   * **Sort by score** should sort the Creative Quality cards by score.
   * **Sort by name** should sort the Creative Quality cards alphabetically by the name.
   * Clicking a button multiple times should toggle the sorting, e.g. low to high score, and then high to low score.
 
-:star: Great! Please make a commit of your work. :star:
+:star: Nice! Please make a `git commit` of your work for this part. :star:
 
 ### Part 2.2: Re-styling the Creative Quality results
 
