@@ -1,9 +1,47 @@
 {
   "private": true,
+  "engines": {
+    "node": "^8.9.1",
+    "yarn": "^1.10.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testURL": "http://localhost",
+    "roots": [
+      "<rootDir>/__tests__",
+      "<rootDir>/app/javascript"
+    ],
+    "testPathIgnorePatterns": [
+      "/config/webpack/"
+    ],
+    "setupTestFrameworkScriptFile": "./__js_test_config/setup.js",
+    "modulePaths": [
+      "__js_test_config"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript/src",
+      "__tests__",
+      "<rootDir>"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
   "dependencies": {
-    "@rails/webpacker": "^3.1.1",
-    "angular": "^1.6.7",
-    "babel-core": "^6.13.2",
+    "@rails/webpacker": "4.0.0-pre.2",
+    "babel-core": "^6.26.0",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-es2015": "6.9.0",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
@@ -16,6 +54,32 @@
     "styled-components": "^3.4.5"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.9.7"
+    "babel-eslint": "~8.2.1",
+    "babel-jest": "^22.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "~16.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-standard": "10.2.1",
+    "eslint-config-standard-react": "5.0.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-import": "~2.8.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-jest": "^21.7.0",
+    "eslint-plugin-jsx-a11y": "~6.0.3",
+    "eslint-plugin-node": "~5.1.1",
+    "eslint-plugin-promise": "~3.5.0",
+    "eslint-plugin-react": "~7.11.0",
+    "eslint-plugin-standard": "~3.0.1",
+    "jest": "^23.6.0",
+    "jest-styled-components": "^5.0.1",
+    "prettier": "^1.14.2",
+    "webpack-dev-server": "^3.1.3"
+  },
+  "resolutions": {
+    "caniuse-lite": "1.0.30000830",
+    "webpack": "4.17.1"
   }
 }
