@@ -1,0 +1,5 @@
+__js_test_config
+node_modules
+./vendor/*
+dist
+public

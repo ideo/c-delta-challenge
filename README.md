@@ -34,7 +34,13 @@ Start by cloning this repository:
 $ git clone git@github.com:ideo/c-delta-challenge.git
 ```
 
-Next, install the project's dependencies using Bundler (run `gem install bundler` if you don't have it). You'll need Ruby and Yarn installed before setting up the project's dependencies.
+Ensure that you have installed:
+
+* [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.3 (use rbenv or RVM to ensure the right version, or else alter the settings in `.ruby-version` and `Gemfile` to match your local version)
+* [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+* [Bundler](https://bundler.io/) (run `gem install bundler` once ruby is installed)
+
+Install the project's dependencies:
 
 ```bash
 $ cd c-delta-challenge
@@ -188,49 +194,64 @@ Your tasks:
 
 The home page lists three of the six Creative Qualities we see as essential to innovation within an organization. In this part, we're going to restyle the results, and then rewrite the view of the page to use React (v16) instead of Rails + ERB.
 
-**_If you have skipped Part 1, please uncomment the mock JSON at the top of `app/views/creative_qualities/index.html.erb`._**
-
-### Part 2.1: Using React to display and sort the Creative Qualities
+### Part 2.1: Using React to display the Creative Qualities
 
 In order to make the application more dynamic and interactive, we'd like to start using React (v16) to power the index page.
 
 The site is already setup to use the [webpacker](https://github.com/rails/webpacker) gem and [React](https://5abc31d8be40f1556f06c4be--reactjs.netlify.com/docs/hello-world.html), and you'll find a basic `App.js` React component already provided for you in the `/app/javascript/components` directory.
 
-You'll also see in `index.html.erb` that the Qualities are being output in JSON like so, which you can access from React to render the appropriate data:
+There is also an **API endpoint** where you can retrieve the creative quality data: `http://localhost:3000/creative_qualities.json`
 
-```javascript
-window.qualsJSON = [... qualities ...]
-```
-
-Please replace the ERB code (e.g. `<%= @creative_qualities.find_each...`) with the React app being rendered in `<div id="react-root" />`, creating React components to render the creative qualities instead.
+The Rails template is currently making use of the stylesheet in `qualities.scss`, which you can reference as you create your React components.
 
 Your tasks:
 
-* Replace the Rails + ERB code in `index.html.erb` by implementing the provided React `App.js` and writing the appropriate React JS and JSX code.
-* Implement the "read more" link on each description, so that the text is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
+* Use the API endpoint above to load the creative quality data into your React application. We have included [react-refetch](https://github.com/heroku/react-refetch) in `package.json` but feel free to use any package you like for fetching data.
+* Replace the Rails + ERB code in `index.html.erb` by implementing the provided React `App.js` and creating React components to render the creative qualities.
+* Replace the styling provided in `qualities.scss` with a CSS-in-JS solution so that the styling is more tightly coupled with the React components. We have included [styled-components](https://www.styled-components.com/) with a very simple example in `App.js`, but feel free to use any package you like.
+
+:star: Great! Please make a `git commit` of your work for this part. :star:
+
+### Part 2.2: Adding dynamic sort and displaying scores
+
+![](public/screenshots/Creative_Difference-mockup.png)
+
+Now that the creative qualities are displayed in React, we'd like to add some other UI features.
+
+Your tasks:
+
+* Implement a "read more" link on each description, so that the text is truncated to 120 characters. Clicking "read more" should display the whole description and toggle into a "read less" link.
 * Add two sorting buttons at the top right-hand corner of the page:
   * **Sort by score** should sort the Creative Quality cards by score.
   * **Sort by name** should sort the Creative Quality cards alphabetically by the name.
   * Clicking a button multiple times should toggle the sorting, e.g. low to high score, and then high to low score.
 
-:star: Great! Please make a commit of your work. :star:
+* Implement the progress bar as shown in the screenshot above, using the `score` field from the creative quality. Note that scores range from -100 to 100, so the middle point of the bar (i.e. an "empty" bar) should represent a score of 0, negative scores should extend to the left, and positive scores should extend to the right, as shown above.
 
-### Part 2.2: Re-styling the Creative Quality results
+:star: Nice! Please make a `git commit` of your work for this part. :star:
 
-Using the below screenshot as your guide, re-style the Creative Quality index page to look as similar to the mockup as possible.
+### Part 2.3: Jest Unit Tests
 
-![](public/screenshots/Creative_Difference-mockup.png)
+You'll find a unit test supplied for `App.js` that utilizes [Jest](https://jestjs.io/en/) and [Enzyme](https://airbnb.io/enzyme/) in `/__tests__/components/App.unit.test.js` and you can run the tests with:
 
-You'll create a progress bar that corresponds to the final (normalized) score of each quality. Note that scores range from -100 to 100, so the middle point of the bar (i.e. an "empty" bar) should represent a score of 0, negative scores should extend to the left, and positive scores should extend to the right, as shown above.
+```
+yarn test
+```
 
-Resources:
+or to watch files for changes and automatically re-run tests:
 
-* Colors are already stored on each `CreativeQuality` object in the `color` field
-* Image assets for each quality are in this folder: `/app/assets/images/qualityIcons`
+```
+yarn test --watch
+```
+
+Your task:
+
+* For every component that you've added, add an appropriate new unit test file in the `/__tests__/` directory tree. The component's basic functionality should be tested (e.g. that it can shallow render, like in our unit test example).
+
+
 
 :star: You're all done! Make a final commit of your work! :star:
 
-\* Bonus points if you can add any JS tests for code coverage :trophy:
 
 ## Part 3: Reflection and Submission
 

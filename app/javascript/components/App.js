@@ -1,13 +1,19 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
+import styled from 'styled-components'
+
+export const StyledHeader = styled.h1`
+  font-size: 32px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+`
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <div className="row">
         <div className="col-md-12">
-          <h2>
-            Creative Qualities
-          </h2>
+          <StyledHeader>Creative Qualities</StyledHeader>
         </div>
       </div>
     )

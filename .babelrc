@@ -3,9 +3,24 @@
     [
       "env",
       {
-        "modules": false,
+        "test": {
+          "modules": "commonjs"
+        },
+        "development": {
+          "modules": false
+        },
+        "production": {
+          "modules": false
+        },
         "targets": {
-          "browsers": "> 1%",
+          "browsers": [
+            "> 1%",
+            "last 2 firefox versions",
+            "last 2 chrome versions",
+            "last 2 safari versions",
+            "edge 15-16",
+            "ie 11"
+          ],
           "uglify": true
         },
         "useBuiltIns": true
@@ -20,6 +35,17 @@
       "transform-class-properties",
       {
         "spec": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "alias": {
+          "~": "./app/javascript",
+          "^~(.+)": "./app/javascript/src/\\1",
+          "#": "./__js_test_config"
+        }
       }
     ]
   ]
