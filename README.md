@@ -153,8 +153,7 @@ In more detail:
 
 * The **raw score** is the sum of all of the question choice scores for that creative quality, for an individual survey response.
   * **Example:** If I select four question choices that impact the **Purpose** quality with the scores 3, 3, 2, and -1, then my raw score for Purpose would be `3 + 3 + 2 - 1 = 7`.
-* The **max score** is the highest possible score a respondent could've gotten for a quality, if they answer all the questions _(ie: if you answered by choosing the highest value choice per question that is linked to that quality)_. It is static, because if you skip a question, we don't increase the max.
-  * **Example:** If you answered 6 questions with choices that are linked to **Purpose**, then the maximum score would be the sum of all the highest scoring choices linked to Purpose for those questions. For example, if the maximum scores were: 2, 1, 4, 3, 2, 3, then the max would be `2 + 1 + 4 + 3 + 2 + 3 = 15`
+* The **max score** is the highest possible score a respondent could've gotten for a quality, if they were to answer all the questions _(ie: if you answered by choosing the highest value choice per question that is linked to that quality)_. It is a static value for everyone, because any could _potentially_ answer all of the questions.
 
 Please update the survey response page to show the raw and max for each quality.
 

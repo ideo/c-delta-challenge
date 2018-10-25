@@ -18,14 +18,14 @@
 
     <hr>
 
-    <% @survey_response.answers.each do |question_response| %>
-      <%= render 'questions/header', question: question_response.question %>
+    <% @survey_response.answers.each do |answer| %>
+      <%= render 'questions/header', question: answer.question %>
 
       <table class="table table-bordered">
-        <% question_response.question.question_choices.each do |question_choice| %>
+        <% answer.question.question_choices.each do |question_choice| %>
           <tr>
             <td>
-              <% if question_choice == question_response.question_choice %>
+              <% if question_choice == answer.question_choice %>
                 <strong>
                   <%= question_choice.text %>
                 </strong>
